@@ -6,17 +6,20 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import {CategoryService} from './services/category.service';
+import {MessageService} from './services/message.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

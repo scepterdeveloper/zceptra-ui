@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Category} from '../domain/category';
 import {HttpClient} from '@angular/common/http';
+import {MessageService} from './message.service';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
@@ -9,21 +10,27 @@ import {of} from 'rxjs/observable/of';
 export class CategoryService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private messageService: MessageService
   ) { }
 
   getCategories(): Observable<Category[]> {
 
     let categories: Category[] = [];
 
-    this.http.get<Category[]>('http://localhost:8080/get-all-categories').subscribe(data => {
+    this.http.get<Category[]>('http://localhost:8080/get-all-categories').subscribe(
+      data => {
+        let index = 0;
 
-      let index = 0;
-
-      for (let category of data) {
-        categories[index++] = {id: category.id, name: category.name, description: category.description};
-      }
-    });
+        for (let category of data) {
+          categories[index++] = {id: category.id, name: category.name, description: category.description};
+        }
+    },
+    error => {
+      console.log("Could not get categories, check if feeder is up.");
+      this.messageService.add(`CategoryService: HTTP error while fetching categories; check if feeder is up.`);
+    }
+  );
 
     return of(categories);
   }
