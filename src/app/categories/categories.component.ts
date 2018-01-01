@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from '../services/category.service';
 import {Category} from '../domain/Category';
+import {HttpClient} from '@angular/common/http';
+import {MessageService} from '../services/message.service';
+import {Http} from '@angular/http';
 
 @Component({
   selector: 'app-categories',
@@ -10,14 +13,26 @@ import {Category} from '../domain/Category';
 export class CategoriesComponent implements OnInit {
 
   categories: Category[];
+  selectedCategory: Category;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private http: HttpClient,
+    private messageService: MessageService
+  ) { }
 
   getCategories(): void {
     console.log("Getting Categories...");
-    this.categoryService.getCategories()
-      .subscribe(categories => this.categories = categories);
-      console.log('Categories.length: ' + this.categories.length);
+    this.http.get<Category[]>('http://localhost:8080/get-all-categories').subscribe(
+      data => {
+        console.log("Data from server: " + data.length + " category/categories.");
+        this.categories = data;
+    },
+    error => {
+      console.log("Could not get categories, check if feeder is up.");
+      this.messageService.add("CategoriesComponent: HTTP error while fetching categories; check if feeder is up.");
+    }
+   );
   }
 
   ngOnInit() {

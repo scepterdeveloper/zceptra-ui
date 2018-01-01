@@ -1,0 +1,14 @@
+<button (click)="goBack()">Back to Categories</button>
+
+<div *ngIf="category">
+<h2>{{ category.name | uppercase }} Details</h2>
+<div><span>Id: </span>{{category.id}}</div>
+<div>
+  <label>Name
+    <input [(ngModel)]="category.name" placeholder="name">
+  </label>
+  <label>Description
+    <input [(ngModel)]="category.description" placeholder="name">
+  </label>
+</div>
+</div>

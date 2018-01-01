@@ -32,6 +32,11 @@ export class CategoryService {
     }
   );
 
-    return of(categories);
+  console.log("Categories Size: " + categories.length);
+
+
+
+   return of(categories);
   }
+
 }
