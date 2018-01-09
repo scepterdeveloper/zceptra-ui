@@ -1,14 +1,17 @@
-<button (click)="goBack()">Back to Categories</button>
-
 <div *ngIf="category">
-<h2>{{ category.name | uppercase }} Details</h2>
-<div><span>Id: </span>{{category.id}}</div>
-<div>
-  <label>Name
-    <input [(ngModel)]="category.name" placeholder="name">
-  </label>
-  <label>Description
-    <input [(ngModel)]="category.description" placeholder="name">
-  </label>
-</div>
+  <h2>{{ category.name | uppercase }} Details</h2>
+  <div><span><b>Id</b></span><br>{{category.id}}</div>
+  <div>
+    <p>
+      <label>Name</label><br>
+      <input [(ngModel)]="category.name" placeholder="Name">
+  </p>
+  <p>
+    <label>Description</label><br>
+    <input [(ngModel)]="category.description" placeholder="Description">
+  </p>
+  </div>
+  <nav>
+    <a routerLink="/accounts/{{category.id}}">View Accounts</a>
+  </nav>
 </div>

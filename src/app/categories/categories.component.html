@@ -1,9 +1,9 @@
 <div *ngIf="categories">
-  <ul class="categories">
-    <li *ngFor="let category of categories">
-      <a routerLink="/category-detail/{{category.id}}">
-        <span class="badge">{{category.id}}</span> {{category.name}}
-      </a>
-    </li>
-  </ul>
+  <h3>CATEGORIES</h3>
+
+  <div class="list-group">
+    <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}" class="list-group-item list-group-item-action">
+      {{category.name}}
+    </a>
+  </div>
 </div>

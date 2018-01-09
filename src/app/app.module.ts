@@ -12,6 +12,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CategoriesComponent,
     MessagesComponent,
     CategoryDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 input {
   height: 2em;
+  width: 250px;
   font-size: 1em;
   padding-left: .4em;
 }
@@ -19,4 +20,29 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+.header-bar {
+  background-color: rgb(0,120,215);
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -49,4 +49,8 @@ export class CategoryDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  viewAccounts(): void {
+    this.location.go("/accounts");
+  }
 }
