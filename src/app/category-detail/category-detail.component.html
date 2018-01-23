@@ -1,16 +1,16 @@
 <div *ngIf="category">
-  <h2>{{ category.name | uppercase }} Details</h2>
-  <div><span><b>Id</b></span><br>{{category.id}}</div>
-  <div>
-    <p>
-      <label>Name</label><br>
-      <input [(ngModel)]="category.name" placeholder="Name">
-  </p>
-  <p>
-    <label>Description</label><br>
-    <input [(ngModel)]="category.description" placeholder="Description">
-  </p>
-  </div>
+  <h4>{{category.id}} - {{ category.name}}</h4>
+    <div class="form-group">
+        <label for="name">Name</label><br>
+        <input [(ngModel)]="category.name" placeholder="Name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label><br>
+      <input [(ngModel)]="category.description" placeholder="Description" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
   <nav>
     <a routerLink="/accounts/{{category.id}}">View Accounts</a>
   </nav>

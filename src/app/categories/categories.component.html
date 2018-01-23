@@ -1,5 +1,6 @@
 <div *ngIf="categories">
-  <h3>CATEGORIES</h3>
+  <br>
+  <h4>Categories</h4>
 
   <div class="list-group">
     <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}" class="list-group-item list-group-item-action">
