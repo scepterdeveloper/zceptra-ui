@@ -13,7 +13,6 @@ import {Http} from '@angular/http';
 export class CategoriesComponent implements OnInit {
 
   categories: Category[];
-  selectedCategory: Category;
 
   constructor(
     private categoryService: CategoryService,

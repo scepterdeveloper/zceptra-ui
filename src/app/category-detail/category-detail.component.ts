@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Category} from '../domain/category';
 import {CategoryService} from '../services/category.service';
 import {ActivatedRoute} from '@angular/router';
@@ -14,7 +14,7 @@ import {Http} from '@angular/http';
 })
 export class CategoryDetailComponent implements OnInit {
 
-  @Input() category: Category;
+  category: Category;
 
   constructor(
     private route: ActivatedRoute,
