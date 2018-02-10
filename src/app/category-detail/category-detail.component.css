@@ -1,10 +1,4 @@
-input {
-  height: 2em;
-  width: 250px;
-  font-size: 1em;
-  padding-left: .4em;
-}
-button {
+.navbutton {
   margin-top: 20px;
   font-family: Arial;
   background-color: #eee;
@@ -12,39 +6,4 @@ button {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer; cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-
-nav a {
-  width: 130px;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
-}
-nav a:visited, a:link {
-  color: #607D8B;
-}
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
-}
-nav a.router-link-active {
-  color: #039be5;
-}
-.header-bar {
-  background-color: rgb(0,120,215);
-  height: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }

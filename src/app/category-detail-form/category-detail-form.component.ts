@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Category} from '../domain/category';
 import {CategoryService} from '../services/category.service';
 import {ActivatedRoute} from '@angular/router';
@@ -6,36 +6,37 @@ import {Location} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-category-detail',
-  templateUrl: './category-detail.component.html',
-  styleUrls: ['./category-detail.component.css']
+  selector: 'app-category-detail-form',
+  templateUrl: './category-detail-form.component.html',
+  styleUrls: ['./category-detail-form.component.css']
 })
-export class CategoryDetailComponent implements OnInit {
+export class CategoryDetailFormComponent implements OnInit {
 
   category: Category;
+  submitted = false;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private categoryService: CategoryService,
     private location: Location,
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
+  onSubmit() {
+    this.submitted = true;
+  }
+
+  goBack(): void {
+    this.location.back();
+  }  
+
+  get diagnostic() { return JSON.stringify(this.category); }
+
   ngOnInit(): void {
     this.getCategory();
-  }
-
-  viewAccounts(): void {
-    this.router.navigateByUrl("/accounts/" + this.category.id);
-  }
-
-  editDetails(): void {
-    this.router.navigateByUrl("/edit-category/" + this.category.id);
   }
 
   getCategory(): void {
@@ -54,9 +55,5 @@ export class CategoryDetailComponent implements OnInit {
        this.messageService.add(`CategoryService: HTTP error while fetching category; check if feeder is up.`);
      }
    );
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 }

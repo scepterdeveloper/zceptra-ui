@@ -27,6 +27,10 @@ export class AccountsComponent implements OnInit {
     this.getAccounts();
   }
 
+  goBack(): void {
+    this.location.back();
+  }  
+
   getAccounts(): void {
 
     const categoryId = +this.route.snapshot.paramMap.get('category-id');

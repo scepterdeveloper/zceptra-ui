@@ -1,5 +1,9 @@
+<button type="button" class="navbutton" (click)="goBack()">Back</button>
+<button type="button" class="navbutton" (click)="goBack()">Home</button>
+<hr>
+
 <div *ngIf="accounts">
-  <h2>ACCOUNTS</h2>
+  <h4>Accounts</h4>
 
   <div class="list-group">
     <a *ngFor="let account of accounts" routerLink="/account-detail/{{account.id}}" class="list-group-item list-group-item-action">

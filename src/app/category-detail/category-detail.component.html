@@ -1,3 +1,7 @@
+<button type="button" class="navbutton" (click)="goBack()">Back</button>
+<button type="button" class="navbutton" (click)="goBack()">Home</button>
+
+<hr>
 <div *ngIf="category">
   <h4>{{category.id}} - {{ category.name}}</h4>
     <div>
@@ -9,10 +13,11 @@
 		<div class="font-weight-bold">Description</div>
 		{{ category.description}}
     </div>
-	<br>
+
+    <hr>
 
   <nav>
-    <a routerLink="/accounts/{{category.id}}">View Accounts</a>
-	<a routerLink="/accounts/{{category.id}}">Edit Details</a>
+    <button type="button" class="btn btn-success" (click)="viewAccounts()">View Accounts</button>
+    <button type="button" class="btn btn-success" (click)="editDetails()">Edit Details</button>
   </nav>
 </div>
