@@ -1,6 +1,7 @@
-<button type="button" class="navbutton" (click)="goBack()">Back</button>
-<button type="button" class="navbutton" (click)="goBack()">Home</button>
-<hr>
+<div>
+  <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
+  <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
+</div>
 
 <div *ngIf="accounts">
   <h4>Accounts</h4>

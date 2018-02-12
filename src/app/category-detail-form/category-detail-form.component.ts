@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-detail-form',
@@ -22,6 +23,7 @@ export class CategoryDetailFormComponent implements OnInit {
     private categoryService: CategoryService,
     private location: Location,
     private http: HttpClient,
+    private router: Router,
     private messageService: MessageService
   ) { }
 
@@ -31,7 +33,11 @@ export class CategoryDetailFormComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }  
+  }
+
+  goHome(): void {
+    this.router.navigateByUrl("/dashboard");
+  }
 
   get diagnostic() { return JSON.stringify(this.category); }
 

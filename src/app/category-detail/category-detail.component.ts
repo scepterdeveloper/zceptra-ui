@@ -59,4 +59,8 @@ export class CategoryDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  goHome(): void {
+    this.router.navigateByUrl("/dashboard");
+  }
 }

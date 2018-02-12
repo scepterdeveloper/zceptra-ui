@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -19,12 +20,14 @@ export class CategoriesComponent implements OnInit {
     private categoryService: CategoryService,
     private http: HttpClient,
     private messageService: MessageService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
-  goBack(): void {
-    this.location.back();
-  }  
+  goHome(): void {
+
+    this.router.navigateByUrl("/dashboard");
+  }
 
   getCategories(): void {
     console.log("Getting Categories...");

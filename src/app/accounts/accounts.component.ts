@@ -4,6 +4,7 @@ import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accounts',
@@ -19,7 +20,8 @@ export class AccountsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,11 @@ export class AccountsComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }  
+  }
+
+  goHome(): void {
+    this.router.navigateByUrl("/dashboard");
+  }
 
   getAccounts(): void {
 
