@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from '../services/category.service';
-import {Category} from '../domain/Category';
+//import {Category} from '../domain/Category';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
