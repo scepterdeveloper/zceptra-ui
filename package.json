@@ -24,9 +24,11 @@
     "@angular/router": "^5.0.0",
     "@qontu/ngx-inline-editor": "^0.2.0-alpha.12",
     "core-js": "^2.4.1",
+    "enhanced-resolve": "^3.3.0",
     "express": "^4.16.2",
     "npm": "^5.5.1",
     "rxjs": "^5.5.2",
+    "tslib": "^1.9.0",
     "typescript": "~2.4.2",
     "zone.js": "^0.8.14"
   },
