@@ -50,7 +50,7 @@ export class CategoryDetailFormComponent implements OnInit {
      const id = +this.route.snapshot.paramMap.get('id');
      console.log("Gettig category with id: " + id);
 
-     this.http.get<Category>('http://localhost:8080/get-category?id=' + id).subscribe(
+     this.http.get<Category>('https://zceptra.herokuapp.com/get-category?id=' + id).subscribe(
        data => {
 
          console.log("Data from server: " + data.name);

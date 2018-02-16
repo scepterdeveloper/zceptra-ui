@@ -18,7 +18,7 @@ export class CategoryService {
 
     let categories: Category[] = [];
 
-    this.http.get<Category[]>('http://localhost:8080/get-all-categories').subscribe(
+    this.http.get<Category[]>('https://zceptra.herokuapp.com/get-all-categories').subscribe(
       data => {
         let index = 0;
 

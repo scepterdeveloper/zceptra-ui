@@ -31,7 +31,7 @@ export class CategoriesComponent implements OnInit {
 
   getCategories(): void {
     console.log("Getting Categories...");
-    this.http.get<Category[]>('http://localhost:8080/get-all-categories').subscribe(
+    this.http.get<Category[]>('https://zceptra.herokuapp.com/get-all-categories').subscribe(
       data => {
         console.log("Data from server: " + data.length + " category/categories.");
         this.categories = data;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
+import {Account} from '../domain/account';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import { Router } from '@angular/router';
@@ -42,7 +43,7 @@ export class AccountsComponent implements OnInit {
     const categoryId = +this.route.snapshot.paramMap.get('category-id');
 
     console.log("Getting accounts for category " + categoryId);
-    this.http.get<Account[]>('http://localhost:8080/get-accounts?categoryId=' + categoryId).subscribe(
+    this.http.get<Account[]>('https://zceptra.herokuapp.com/get-accounts?categoryId=' + categoryId).subscribe(
       data => {
         console.log("Data from server: " + data.length);
         this.accounts = data;
