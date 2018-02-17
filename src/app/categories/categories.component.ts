@@ -6,6 +6,7 @@ import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
 import {Location} from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-categories',
@@ -30,8 +31,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   getCategories(): void {
-    console.log("Getting Categories...");
-    this.http.get<Category[]>('https://zceptra.herokuapp.com/get-all-categories').subscribe(
+    console.log("Getting Categories from " + environment.apiUrl + '/get-all-categories');
+    this.http.get<Category[]>(environment.apiUrl + '/get-all-categories').subscribe(
       data => {
         console.log("Data from server: " + data.length + " category/categories.");
         this.categories = data;

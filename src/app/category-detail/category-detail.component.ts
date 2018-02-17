@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-category-detail',
@@ -43,7 +44,7 @@ export class CategoryDetailComponent implements OnInit {
      const id = +this.route.snapshot.paramMap.get('id');
      console.log("Gettig category with id: " + id);
 
-     this.http.get<Category>('https://zceptra.herokuapp.com/get-category?id=' + id).subscribe(
+     this.http.get<Category>(environment.apiUrl + '/get-category?id=' + id).subscribe(
        data => {
 
          console.log("Data from server: " + data.name);
