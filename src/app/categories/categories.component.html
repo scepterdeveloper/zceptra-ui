@@ -1,13 +1,28 @@
-<div>
-  <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-</div>
-
-<div *ngIf="categories">
-  <h4>Categories</h4>
-
-  <div class="list-group">
-    <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}" class="list-group-item list-group-item-action">
-      {{category.name}}
-    </a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="categories">
+        <h4>Categories</h4>
+      </div>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-success mb-1 float-right"><span><i class="fas fa-plus"></i></span> New</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="categories">
+        <div class="list-group">
+          <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}" class="list-group-item list-group-item-action">
+            {{category.name}}
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
