@@ -8,6 +8,15 @@ import {MessageService} from '../services/message.service';
 import {Http} from '@angular/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Component({
   selector: 'app-category-detail-form',
@@ -46,10 +55,24 @@ export class CategoryDetailFormComponent implements OnInit {
     this.getCategory();
   }
 
+  saveCategory(): void  {
+
+        this.http.post<Category>(environment.apiUrl + '/edit-category', this.category, httpOptions).subscribe(
+          data => {
+            console.log("Posted category with id: " + this.category.id);
+            this.router.navigateByUrl("category-detail/" + this.category.id);
+        },
+        error => {
+          console.log("Could not post category, check if feeder is up.");
+          this.messageService.add(`CategoryService: HTTP error while fetching category; check if feeder is up.`);
+        }
+      );
+  }
+
   getCategory(): void {
 
      const id = +this.route.snapshot.paramMap.get('id');
-     console.log("Gettig category with id: " + id);
+     console.log("Getting category with id: " + id);
 
      this.http.get<Category>(environment.apiUrl + '/get-category?id=' + id).subscribe(
        data => {
