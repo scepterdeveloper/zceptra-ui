@@ -4,7 +4,7 @@
 </div>
 
 <div *ngIf="category">
-    <h4>Edit {{category.name}}</h4>
+    <h4>{{operation}} {{category.name}}</h4>
     <form (ngSubmit)="onSubmit()" #categoryDetailForm="ngForm">
       <div class="form-group">
         <label class="font-weight-bold" for="name">Name</label>

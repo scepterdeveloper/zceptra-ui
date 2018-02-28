@@ -26,6 +26,7 @@ const httpOptions = {
 export class CategoryDetailFormComponent implements OnInit {
 
   category: Category;
+  operation: String;
   submitted = false;
 
   constructor(
@@ -52,13 +53,27 @@ export class CategoryDetailFormComponent implements OnInit {
   get diagnostic() { return JSON.stringify(this.category); }
 
   ngOnInit(): void {
-    this.getCategory();
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if(id==-1)  {
+      this.operation = "Add: ";
+      this.category = new Category();
+      this.category.id = null;
+      this.category.name = "";
+      this.category.description = "";
+
+    }else {
+      this.operation = "Edit: ";
+      this.getCategory();
+    }
   }
 
   saveCategory(): void  {
 
         this.http.post<Category>(environment.apiUrl + '/edit-category', this.category, httpOptions).subscribe(
           data => {
+            console.log("Data from server: " + data.name);
+            this.category = data;
             console.log("Posted category with id: " + this.category.id);
             this.router.navigateByUrl("category-detail/" + this.category.id);
         },

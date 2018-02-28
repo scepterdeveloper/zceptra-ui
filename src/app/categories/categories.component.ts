@@ -30,6 +30,10 @@ export class CategoriesComponent implements OnInit {
     this.router.navigateByUrl("/dashboard");
   }
 
+  addCategory(): void {
+    this.router.navigateByUrl("/edit-category/-1");
+  }
+
   getCategories(): void {
     console.log("Getting Categories from " + environment.apiUrl + '/get-all-categories');
     this.http.get<Category[]>(environment.apiUrl + '/get-all-categories').subscribe(

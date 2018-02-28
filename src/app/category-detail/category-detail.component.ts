@@ -46,7 +46,6 @@ export class CategoryDetailComponent implements OnInit {
 
      this.http.get<Category>(environment.apiUrl + '/get-category?id=' + id).subscribe(
        data => {
-
          console.log("Data from server: " + data.name);
          this.category = data;
      },
@@ -58,7 +57,7 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigateByUrl("/categories");
   }
 
   goHome(): void {
