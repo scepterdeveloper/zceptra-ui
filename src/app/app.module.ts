@@ -14,6 +14,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { CategoryDetailFormComponent } from './category-detail-form/category-detail-form.component';
+import { OrganizeComponent } from './organize/organize.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CategoryDetailFormComponent } from './category-detail-form/category-det
     CategoryDetailComponent,
     DashboardComponent,
     AccountsComponent,
-    CategoryDetailFormComponent
+    CategoryDetailFormComponent,
+    OrganizeComponent
   ],
   imports: [
     BrowserModule,

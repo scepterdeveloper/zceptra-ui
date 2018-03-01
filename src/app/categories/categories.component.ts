@@ -30,6 +30,11 @@ export class CategoriesComponent implements OnInit {
     this.router.navigateByUrl("/dashboard");
   }
 
+  goBack(): void {
+
+    this.router.navigateByUrl("/organize");
+  }
+
   addCategory(): void {
     this.router.navigateByUrl("/edit-category/-1");
   }
