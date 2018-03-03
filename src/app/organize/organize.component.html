@@ -1,22 +1,44 @@
 <div>
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
-<div class="row no-gutters">
-  <div class="col mr-1 mt-2 ml-1">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">Categories</h3>
-        <p class="card-text">Add, modify or delete categories, maintain accounts and configurations.</p>
-        <button role="button" class="btn btn-success" (click)="viewCategories()">Manage Categories</button>
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col mr-1 mt-2 ml-1">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Categories</h3>
+          <p class="card-text">Add, modify or delete categories, maintain accounts and configurations.</p>
+          <button role="button" class="btn btn-success" (click)="viewCategories()">Manage Categories</button>
+        </div>
+      </div>
+    </div>
+    <div class="col ml-1 mt-2 mr-1">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Statement Profiles</h3>
+          <p class="card-text">Maintain the profiles to integrate import of account statements.</p>
+          <button role="button" class="btn btn-success" (click)="viewCategories()">Maintain Profiles</button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col ml-1 mt-2 mr-1">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">Statement Profiles</h3>
-        <p class="card-text">Maintain the profiles to integrate import of account statements.</p>
-        <button role="button" class="btn btn-success" (click)="viewCategories()">Maintain Profiles</button>
+  <div class="row no-gutters">
+    <div class="col mr-1 mt-2 ml-1">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Transaction Types</h3>
+          <p class="card-text">Maintain your transaction types.</p>
+          <button role="button" class="btn btn-success" (click)="viewCategories()">Transaction Types</button>
+        </div>
+      </div>
+    </div>
+    <div class="col ml-1 mt-2 mr-1">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Configuration</h3>
+          <p class="card-text">Maintain the general application configurations and rules.</p>
+          <button role="button" class="btn btn-success" (click)="viewCategories()">Configuration Settings</button>
+        </div>
       </div>
     </div>
   </div>

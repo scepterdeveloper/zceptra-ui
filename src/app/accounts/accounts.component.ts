@@ -31,6 +31,10 @@ export class AccountsComponent implements OnInit {
     this.getAccounts();
   }
 
+  addAccount(): void {
+    this.router.navigateByUrl("/edit-account/-1");
+  }
+
   goBack(): void {
     this.location.back();
   }
