@@ -56,14 +56,14 @@ export class CategoryDetailFormComponent implements OnInit {
 
     const id = +this.route.snapshot.paramMap.get('id');
     if(id==-1)  {
-      this.operation = "Add: ";
+      this.operation = "Add Category: ";
       this.category = new Category();
       this.category.id = null;
       this.category.name = "";
       this.category.description = "";
 
     }else {
-      this.operation = "Edit: ";
+      this.operation = "Edit Category: ";
       this.getCategory();
     }
   }

@@ -6,24 +6,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col"><h4>Category Details</h4></div>
+    <div class="col"><h4>Account Details</h4></div>
   </div>
   <div class="row">
     <div class="col">
-      <div *ngIf="category">
+      <div *ngIf="account">
         <div>
             <div class="font-weight-bold">Id</div>
-        {{ category.id}}
+        {{ account.id}}
         </div>
-        <br>
+      <br>
           <div>
               <div class="font-weight-bold">Name</div>
-      		{{ category.name}}
+      		{{ account.name}}
           </div>
       	<br>
           <div>
       		<div class="font-weight-bold">Description</div>
-      		{{ category.description}}
+      		{{ account.description}}
           </div>
       </div>
     </div>
@@ -35,15 +35,10 @@
   </div>
   <div class="row no-gutters">
     <div class="col">
-      <button role="button" class="btn btn-success btn-block" (click)="viewAccounts()">View Accounts</button>
-    </div>
-    <div class="col ml-1">
       <button role="button" class="btn btn-primary btn-block" (click)="editDetails()">Edit Details</button>
     </div>
-  </div>
-  <div class="row">
-    <div class="col mt-1">
-      <button role="button" class="btn btn-danger btn-block">Delete Category</button>
+    <div class="col ml-1">
+      <button role="button" class="btn btn-danger btn-block">Delete account</button>
     </div>
   </div>
 </div>

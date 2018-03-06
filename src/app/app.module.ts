@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { CategoryDetailFormComponent } from './category-detail-form/category-detail-form.component';
 import { OrganizeComponent } from './organize/organize.component';
+import { AccountDetailFormComponent } from './account-detail-form/account-detail-form.component';
+import { AccountDetailComponent } from './account-detail/account-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { OrganizeComponent } from './organize/organize.component';
     DashboardComponent,
     AccountsComponent,
     CategoryDetailFormComponent,
-    OrganizeComponent
+    OrganizeComponent,
+    AccountDetailFormComponent,
+    AccountDetailComponent
   ],
   imports: [
     BrowserModule,

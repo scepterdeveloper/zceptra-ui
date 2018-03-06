@@ -17,6 +17,7 @@ export class AccountsComponent implements OnInit {
 
   accounts: Account[];
   selectedAccount: Account;
+  categoryId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,11 +33,11 @@ export class AccountsComponent implements OnInit {
   }
 
   addAccount(): void {
-    this.router.navigateByUrl("/edit-account/-1");
+    this.router.navigateByUrl("/edit-account/" + this.categoryId + "/-1");
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigateByUrl("/category-detail/" + this.categoryId);
   }
 
   goHome(): void {
@@ -45,10 +46,10 @@ export class AccountsComponent implements OnInit {
 
   getAccounts(): void {
 
-    const categoryId = +this.route.snapshot.paramMap.get('category-id');
+    this.categoryId = +this.route.snapshot.paramMap.get('category-id');
 
-    console.log("Getting accounts for category " + categoryId);
-    this.http.get<Account[]>(environment.apiUrl + '/get-accounts?categoryId=' + categoryId).subscribe(
+    console.log("Getting accounts for category " + this.categoryId);
+    this.http.get<Account[]>(environment.apiUrl + '/get-accounts?categoryId=' + this.categoryId).subscribe(
       data => {
         console.log("Data from server: " + data.length);
         this.accounts = data;
