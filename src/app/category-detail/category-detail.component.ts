@@ -32,7 +32,7 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   viewAccounts(): void {
-    this.router.navigateByUrl("/accounts/" + this.category.id);
+    this.router.navigateByUrl("/accounts/" + this.category.id + "/" + this.category.name);
   }
 
   editDetails(): void {

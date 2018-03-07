@@ -4,7 +4,7 @@
 </div>
 
 <div *ngIf="account">
-    <h4>{{operation}} {{account.name}}</h4>
+    <h6><b>{{operation}} {{account.name}}</b></h6>
     <form (ngSubmit)="onSubmit()" #accountDetailForm="ngForm">
       <div class="form-group">
         <label class="font-weight-bold" for="name">Name</label>

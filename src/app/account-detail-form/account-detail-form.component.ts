@@ -60,7 +60,7 @@ export class AccountDetailFormComponent implements OnInit {
       this.account.description = "";
 
     }else {
-      this.operation = "Edit Account: ";
+      this.operation = "Edit Account » ";
       this.getAccount();
     }
   }

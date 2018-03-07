@@ -63,7 +63,7 @@ export class CategoryDetailFormComponent implements OnInit {
       this.category.description = "";
 
     }else {
-      this.operation = "Edit Category: ";
+      this.operation = "Edit Category » ";
       this.getCategory();
     }
   }

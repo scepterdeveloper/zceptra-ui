@@ -52,7 +52,7 @@ export class AccountDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigateByUrl("/accounts/" + this.account.category.id);
+    this.router.navigateByUrl("/accounts/" + this.account.category.id + "/" + this.account.category.name);
   }
 
   goHome(): void {

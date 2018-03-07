@@ -18,6 +18,7 @@ export class AccountsComponent implements OnInit {
   accounts: Account[];
   selectedAccount: Account;
   categoryId: number;
+  categoryName: String;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class AccountsComponent implements OnInit {
   getAccounts(): void {
 
     this.categoryId = +this.route.snapshot.paramMap.get('category-id');
+    this.categoryName = this.route.snapshot.paramMap.get('category-name');
 
     console.log("Getting accounts for category " + this.categoryId);
     this.http.get<Account[]>(environment.apiUrl + '/get-accounts?categoryId=' + this.categoryId).subscribe(

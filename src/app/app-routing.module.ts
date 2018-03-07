@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'category-detail/:id', component: CategoryDetailComponent },
   { path: 'account-detail/:id', component: AccountDetailComponent },
-  { path: 'accounts/:category-id', component: AccountsComponent },
+  { path: 'accounts/:category-id/:category-name', component: AccountsComponent },
   { path: 'edit-category/:id', component: CategoryDetailFormComponent },
   { path: 'edit-account/:categoryId/:id', component: AccountDetailFormComponent }
 ];
