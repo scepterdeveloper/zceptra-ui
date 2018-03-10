@@ -23,4 +23,8 @@ export class OrganizeComponent implements OnInit {
   viewCategories(): void  {
     this.router.navigateByUrl("/categories");
   }
+
+  viewTransactionTypes(): void  {
+    this.router.navigateByUrl("/transaction-types");
+  }
 }
