@@ -17,7 +17,7 @@
     <div class="col">
       <div *ngIf="transactionTypes">
         <div class="list-group">
-          <a *ngFor="let transactionType of transactionTypes" routerLink="" class="list-group-item list-group-item-action">
+          <a *ngFor="let transactionType of transactionTypes" routerLink="/transaction-type-detail/{{transactionType.id}}" class="list-group-item list-group-item-action">
             {{transactionType.name}}
           </a>
         </div>

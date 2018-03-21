@@ -18,6 +18,8 @@ import { OrganizeComponent } from './organize/organize.component';
 import { AccountDetailFormComponent } from './account-detail-form/account-detail-form.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
+import { TransactionTypeDetailComponent } from './transaction-type-detail/transaction-type-detail.component';
+import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { TransactionTypesComponent } from './transaction-types/transaction-types
     OrganizeComponent,
     AccountDetailFormComponent,
     AccountDetailComponent,
-    TransactionTypesComponent
+    TransactionTypesComponent,
+    TransactionTypeDetailComponent,
+    TransactionTypeFormComponent
   ],
   imports: [
     BrowserModule,
