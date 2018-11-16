@@ -3,5 +3,6 @@ export class TransactionType {
   name: String;
   description: String;
   dateLabel: String;
-  amountLabel: String
+  amountLabel: String;
+  descriptionLabel: String;
 }

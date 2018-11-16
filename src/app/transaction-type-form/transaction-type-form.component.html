@@ -31,19 +31,30 @@
             <div class="card bg-light mb-3">
               <div class="card-header">UI Labels</div>
               <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label class="font-weight-bold ml-1" for="name">Date</label>
-                      <input type="text" class="form-control ml-1" id="dateLabel" required [(ngModel)]="transactionType.dateLabel" name="dateLabel" #dateLabel="ngModel">
-                      <div [hidden]="dateLabel.valid || dateLabel.pristine" class="alert alert-danger">Label for Date is required</div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="font-weight-bold" for="name">Date</label>
+                        <input type="text" class="form-control" id="dateLabel" required [(ngModel)]="transactionType.dateLabel" name="dateLabel" #dateLabel="ngModel">
+                        <div [hidden]="dateLabel.valid || dateLabel.pristine" class="alert alert-danger">Label for Date is required</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="font-weight-bold" for="name">Amount</label>
+                        <input type="text" class="form-control" id="amountLabel" required [(ngModel)]="transactionType.amountLabel" name="amountLabel" #amountLabel="ngModel">
+                        <div [hidden]="amountLabel.valid || amountLabel.pristine" class="alert alert-danger">Label for Amount is required</div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label class="font-weight-bold" for="name">Amount</label>
-                      <input type="text" class="form-control" id="amountLabel" required [(ngModel)]="transactionType.amountLabel" name="amountLabel" #amountLabel="ngModel">
-                      <div [hidden]="amountLabel.valid || amountLabel.pristine" class="alert alert-danger">Label for Amount is required</div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="font-weight-bold" for="name">Description</label>
+                        <input type="text" class="form-control" id="descriptionLabel" required [(ngModel)]="transactionType.descriptionLabel" name="descriptionLabel" #descriptionLabel="ngModel">
+                        <div [hidden]="descriptionLabel.valid || descriptionLabel.pristine" class="alert alert-danger">Label for Description is required</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -58,8 +69,5 @@
           </div>
         </div>
       </div>
-
-
-
     </form>
 </div>
