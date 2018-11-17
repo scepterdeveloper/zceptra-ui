@@ -5,4 +5,6 @@ export class TransactionType {
   dateLabel: String;
   amountLabel: String;
   descriptionLabel: String;
+  creditAccountLabel: String;
+  debitAccountLabel: String;
 }

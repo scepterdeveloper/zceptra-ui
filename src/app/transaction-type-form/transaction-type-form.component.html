@@ -51,6 +51,22 @@
                   <div class="row">
                     <div class="col">
                       <div class="form-group">
+                        <label class="font-weight-bold" for="name">Debit Account</label>
+                        <input type="text" class="form-control" id="debitAccountLabel" required [(ngModel)]="transactionType.debitAccountLabel" name="debitAccountLabel" #debitAccountLabel="ngModel">
+                        <div [hidden]="debitAccountLabel.valid || debitAccountLabel.pristine" class="alert alert-danger">Label for Debit Account is required</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="font-weight-bold" for="name">Credit Account</label>
+                        <input type="text" class="form-control" id="creditAccountLabel" required [(ngModel)]="transactionType.creditAccountLabel" name="creditAccountLabel" #creditAccountLabel="ngModel">
+                        <div [hidden]="creditAccountLabel.valid || creditAccountLabel.pristine" class="alert alert-danger">Label for Credit Account is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
                         <label class="font-weight-bold" for="name">Description</label>
                         <input type="text" class="form-control" id="descriptionLabel" required [(ngModel)]="transactionType.descriptionLabel" name="descriptionLabel" #descriptionLabel="ngModel">
                         <div [hidden]="descriptionLabel.valid || descriptionLabel.pristine" class="alert alert-danger">Label for Description is required</div>
@@ -62,6 +78,12 @@
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col">sss
+          </div>
+        </div>
+
         <div class="row">
           <div class="col">
             <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>
