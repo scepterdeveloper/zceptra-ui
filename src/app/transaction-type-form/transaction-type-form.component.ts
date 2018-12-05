@@ -59,6 +59,7 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.id = null;
       this.transactionType.name = "";
       this.transactionType.description = "";
+      this.transactionType.debitAccountOrganizingEntityType = 0;
 
     }else {
       this.operation = "Edit Transaction Type » ";
@@ -90,7 +91,7 @@ export class TransactionTypeFormComponent implements OnInit {
      this.http.get<TransactionType>(environment.apiUrl + '/get-transaction-type?id=' + id).subscribe(
        data => {
 
-         console.log("Data from server: " + data.name);
+         console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
          this.transactionType = data;
      },
      error => {

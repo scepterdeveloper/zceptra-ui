@@ -79,12 +79,29 @@
           </div>
         </div>
 
+        <!-- RADIO BUTTONS -->
+        <label>Chicken or the Egg?</label>
+
         <div class="row">
           <div class="col">
             <div class="card bg-light mb-3">
               <div class="card-header">Debit Account</div>
-              <div class="card-body bg-info">
-                Select Categories or accounts
+              <div class="card-body mt-1 ml-1">
+                <label class="font-weight-bold" for="name">Configure with</label><br>
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="debitAccountOrganizingEntityType" value="CATEGORY" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
+                            Categories
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="debitAccountOrganizingEntityType" value="ACCOUNT" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
+                            Accounts
+                        </label>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
