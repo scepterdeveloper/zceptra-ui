@@ -59,7 +59,7 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.id = null;
       this.transactionType.name = "";
       this.transactionType.description = "";
-      this.transactionType.debitAccountOrganizingEntityType = 0;
+      this.transactionType.debitAccountOrganizingEntityType = "CATEGORY";
 
     }else {
       this.operation = "Edit Transaction Type » ";
