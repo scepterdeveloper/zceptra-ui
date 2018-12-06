@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
