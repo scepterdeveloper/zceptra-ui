@@ -79,8 +79,8 @@
           </div>
         </div>
 
-        <!-- RADIO BUTTONS -->
-        <label>Chicken or the Egg?</label>
+
+        <label>Accounting Configuration</label>
 
         <div class="row">
           <div class="col">
@@ -88,19 +88,12 @@
               <div class="card-header">Debit Account</div>
               <div class="card-body mt-1 ml-1">
                 <label class="font-weight-bold" for="name">Configure with</label><br>
+
                 <div class="form-group">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="debitAccountOrganizingEntityType" value="CATEGORY" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-                            Categories
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="debitAccountOrganizingEntityType" value="ACCOUNT" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-                            Accounts
-                        </label>
-                    </div>
+                  <mat-radio-group  name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
+                    <mat-radio-button value="CATEGORY">Categories</mat-radio-button>
+                    <mat-radio-button class="ml-2" value="ACCOUNT">Accounts</mat-radio-button>
+                  </mat-radio-group>
                 </div>
               </div>
             </div>

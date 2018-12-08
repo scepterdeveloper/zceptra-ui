@@ -42,6 +42,7 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
   ],
   imports: [
     BrowserModule,
+    AppMaterialModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
