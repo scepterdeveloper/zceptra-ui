@@ -3,8 +3,7 @@ import {Category} from '../domain/category';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from './message.service';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs';
-import {of} from 'rxjs/observable/of';
+import {Observable, of} from 'rxjs';
 
 @Injectable()
 export class CategoryService {

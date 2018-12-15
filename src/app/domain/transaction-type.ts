@@ -7,4 +7,6 @@ export class TransactionType {
   descriptionLabel: String;
   creditAccountLabel: String;
   debitAccountLabel: String;
+  debitAccountOrganizingEntityType: String;
+  creditAccountOrganizingEntityType: String;
 }

@@ -79,8 +79,32 @@
           </div>
         </div>
 
+
+        <label>Accounting Configuration</label>
+
         <div class="row">
-          <div class="col">sss
+          <div class="col">
+            <div class="card bg-light mb-3">
+              <div class="card-header">Debit Account</div>
+              <div class="card-body mt-1 ml-1">
+                <label class="font-weight-bold" for="name">Configure with</label><br>
+
+                <div class="form-group">
+                  <mat-radio-group  name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
+                    <mat-radio-button value="CATEGORY">Categories</mat-radio-button>
+                    <mat-radio-button class="ml-2" value="ACCOUNT">Accounts</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-light mb-3">
+              <div class="card-header">Credit Account</div>
+              <div class="card-body">
+                test
+              </div>
+            </div>
           </div>
         </div>
 

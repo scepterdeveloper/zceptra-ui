@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -59,6 +59,7 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.id = null;
       this.transactionType.name = "";
       this.transactionType.description = "";
+      this.transactionType.debitAccountOrganizingEntityType = "CATEGORY";
 
     }else {
       this.operation = "Edit Transaction Type » ";
@@ -90,7 +91,7 @@ export class TransactionTypeFormComponent implements OnInit {
      this.http.get<TransactionType>(environment.apiUrl + '/get-transaction-type?id=' + id).subscribe(
        data => {
 
-         console.log("Data from server: " + data.name);
+         console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
          this.transactionType = data;
      },
      error => {

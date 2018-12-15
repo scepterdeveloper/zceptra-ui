@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
+import { AppMaterialModule } from './app.material.module';
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,6 +22,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
 import { TransactionTypeDetailComponent } from './transaction-type-detail/transaction-type-detail.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
   ],
   imports: [
     BrowserModule,
+    AppMaterialModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
