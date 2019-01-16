@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app.material.module';
@@ -42,8 +42,10 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],
