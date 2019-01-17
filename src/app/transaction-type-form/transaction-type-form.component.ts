@@ -11,6 +11,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import {FormControl} from '@angular/forms';
+import { MatRadioChange } from '@angular/material';
+
 
 
 const httpOptions = {
@@ -78,11 +80,17 @@ export class TransactionTypeFormComponent implements OnInit {
      }
    ];
 
+   toppings = new FormControl();
+   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
+
 
 
   transactionType: TransactionType;
   operation: String;
   submitted = false;
+  showAccountList = false;
+  showCategoryList = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -149,6 +157,8 @@ export class TransactionTypeFormComponent implements OnInit {
 
          console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
          this.transactionType = data;
+         if(data.debitAccountOrganizingEntityType == "CATEGORY") this.showCategoryList = true;
+         else this.showAccountList = true;
      },
      error => {
        console.log("Could not get transaction type, check if feeder is up.");
@@ -157,5 +167,17 @@ export class TransactionTypeFormComponent implements OnInit {
    );
   }
 
+  organizingEntitySetAsCategory(event: MatRadioChange) {
+    console.log("Category set as organizing entity");
+    this.showAccountList = false;
+    this.showCategoryList = true;
+
+  }
+
+  organizingEntitySetAsAccount(event: MatRadioChange) {
+    console.log("Account set as organizing entity");
+    this.showAccountList = true;
+    this.showCategoryList = false;
+  }
 
 }

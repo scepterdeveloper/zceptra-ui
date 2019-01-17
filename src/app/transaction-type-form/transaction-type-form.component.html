@@ -80,7 +80,7 @@
         </div>
 
 
-        <label>Accounting Configuration</label>
+        <label class="font-weight-bold">Accounting Configuration</label>
 
         <div class="row">
           <div class="col">
@@ -91,13 +91,13 @@
 
                 <div class="form-group">
                   <mat-radio-group  name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-                    <mat-radio-button value="CATEGORY">Categories</mat-radio-button>
-                    <mat-radio-button class="ml-2" value="ACCOUNT">Accounts</mat-radio-button>
+                    <mat-radio-button value="CATEGORY" (change)="organizingEntitySetAsCategory($event)">Categories</mat-radio-button>
+                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="organizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
                   </mat-radio-group>
 
                   <br>
 
-                  <mat-form-field>
+                  <mat-form-field *ngIf="showAccountList">
                     <mat-select placeholder="Accounts" [formControl]="pokemonControl" multiple>
                       <mat-option>-- None --</mat-option>
                       <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
@@ -106,6 +106,12 @@
                           {{pokemon.viewValue}}
                         </mat-option>
                       </mat-optgroup>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field *ngIf="showCategoryList">
+                    <mat-select placeholder="Categories" [formControl]="toppings" multiple>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
                     </mat-select>
                   </mat-form-field>
 
