@@ -98,8 +98,7 @@
                   <br>
 
                   <mat-form-field *ngIf="showAccountList">
-                    <mat-select placeholder="Accounts" [formControl]="pokemonControl" multiple>
-                      <mat-option>-- None --</mat-option>
+                    <mat-select placeholder="Accounts" [formControl]="accountsControl" multiple>
                       <mat-optgroup *ngFor="let category of categories" [label]="category.name">
                         <mat-option *ngFor="let account of category.accounts" [value]="account.id">
                           {{account.name}}
@@ -109,7 +108,7 @@
                   </mat-form-field>
 
                   <mat-form-field *ngIf="showCategoryList">
-                    <mat-select placeholder="Categories" [formControl]="toppings" multiple>
+                    <mat-select placeholder="Categories" [formControl]="categoriesControl" multiple>
                       <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
                     </mat-select>
                   </mat-form-field>
