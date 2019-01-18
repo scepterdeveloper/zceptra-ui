@@ -12,8 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import {FormControl} from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
-
-
+import {Category} from '../domain/category';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -87,6 +86,7 @@ export class TransactionTypeFormComponent implements OnInit {
 
 
   transactionType: TransactionType;
+  categories: Category[];
   operation: String;
   submitted = false;
   showAccountList = false;
@@ -129,6 +129,8 @@ export class TransactionTypeFormComponent implements OnInit {
       this.operation = "Edit Transaction Type » ";
       this.getTransactionType();
     }
+
+    this.getCategories();
   }
 
   saveTransactionType(): void  {
@@ -164,6 +166,20 @@ export class TransactionTypeFormComponent implements OnInit {
        console.log("Could not get transaction type, check if feeder is up.");
        this.messageService.add(`TransactionTypeService: HTTP error while fetching transaction type; check if feeder is up.`);
      }
+   );
+  }
+
+  getCategories(): void {
+    console.log("Getting Categories from " + environment.apiUrl + '/get-all-categories');
+    this.http.get<Category[]>(environment.apiUrl + '/get-all-categories').subscribe(
+      data => {
+        console.log("Data from server: " + data.length + " category/categories.");
+        this.categories = data;
+    },
+    error => {
+      console.log("Could not get categories, check if feeder is up.");
+      this.messageService.add("CategoriesComponent: HTTP error while fetching categories; check if feeder is up.");
+    }
    );
   }
 
