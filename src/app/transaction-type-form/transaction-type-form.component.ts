@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 import {FormControl} from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
 import {Category} from '../domain/category';
+import {OrganizingEntity} from '../domain/organizing-entity';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,10 +28,10 @@ const httpOptions = {
 })
 export class TransactionTypeFormComponent implements OnInit {
 
-  selectedAccounts: number[] = [2, 5, 8];
-  accountsControl = new FormControl(this.selectedAccounts);
-  selectedCategories: number[] = [1, 7];
-  categoriesControl = new FormControl(this.selectedCategories);
+  selectedAccounts: number[];
+  accountsControl: FormControl;
+  selectedCategories: number[];
+  categoriesControl:FormControl;
 
   transactionType: TransactionType;
   categories: Category[];
@@ -50,6 +51,10 @@ export class TransactionTypeFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
   }
+
+  onOut(){
+   console.log("Value after losing focus  is",this.selectedCategories);
+ }
 
   goBack(): void {
     this.location.back();
@@ -108,6 +113,16 @@ export class TransactionTypeFormComponent implements OnInit {
          this.transactionType = data;
          if(data.debitAccountOrganizingEntityType == "CATEGORY") this.showCategoryList = true;
          else this.showAccountList = true;
+
+         this.selectedCategories = [];
+         this.selectedAccounts = [];
+
+         this.transactionType.debitableEntities.forEach( (organizingEntity) => {
+          this.selectedCategories.push(organizingEntity.id);
+         });
+
+         this.categoriesControl = new FormControl();
+         this.accountsControl = new FormControl(this.selectedAccounts);
      },
      error => {
        console.log("Could not get transaction type, check if feeder is up.");
@@ -134,7 +149,6 @@ export class TransactionTypeFormComponent implements OnInit {
     console.log("Category set as organizing entity");
     this.showAccountList = false;
     this.showCategoryList = true;
-
   }
 
   organizingEntitySetAsAccount(event: MatRadioChange) {
@@ -142,5 +156,4 @@ export class TransactionTypeFormComponent implements OnInit {
     this.showAccountList = true;
     this.showCategoryList = false;
   }
-
 }

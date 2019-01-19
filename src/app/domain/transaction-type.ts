@@ -1,3 +1,5 @@
+import {OrganizingEntity} from '../domain/organizing-entity';
+
 export class TransactionType {
   id: number;
   name: String;
@@ -9,4 +11,7 @@ export class TransactionType {
   debitAccountLabel: String;
   debitAccountOrganizingEntityType: String;
   creditAccountOrganizingEntityType: String;
+  debitableEntities: number[];
+  creditableEntities: OrganizingEntity[];
+  selectedCategories: number[] = [25];
 }
