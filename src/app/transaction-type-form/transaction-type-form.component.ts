@@ -31,8 +31,10 @@ export class TransactionTypeFormComponent implements OnInit {
   categories: Category[];
   operation: String;
   submitted = false;
-  showAccountList = false;
-  showCategoryList = false;
+  showDebitAccountList = false;
+  showDebitCategoryList = false;
+  showCreditAccountList = false;
+  showCreditCategoryList = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -74,7 +76,9 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.name = "";
       this.transactionType.description = "";
       this.transactionType.debitAccountOrganizingEntityType = "CATEGORY";
-
+      this.transactionType.creditAccountOrganizingEntityType = "CATEGORY";
+      this.showDebitCategoryList = true;
+      this.showCreditCategoryList = true;
     }else {
       this.operation = "Edit Transaction Type » ";
       this.getTransactionType();
@@ -109,9 +113,11 @@ export class TransactionTypeFormComponent implements OnInit {
 
          console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
          this.transactionType = data;
-         if(data.debitAccountOrganizingEntityType == "CATEGORY") this.showCategoryList = true;
-         else this.showAccountList = true;
+         if(data.debitAccountOrganizingEntityType == "CATEGORY") this.showDebitCategoryList = true;
+         else this.showDebitAccountList = true;
 
+         if(data.creditAccountOrganizingEntityType == "CATEGORY") this.showCreditCategoryList = true;
+         else this.showCreditAccountList = true;
      },
      error => {
        console.log("Could not get transaction type, check if feeder is up.");
@@ -134,15 +140,27 @@ export class TransactionTypeFormComponent implements OnInit {
    );
   }
 
-  organizingEntitySetAsCategory(event: MatRadioChange) {
-    console.log("Category set as organizing entity");
-    this.showAccountList = false;
-    this.showCategoryList = true;
+  debitAccountOrganizingEntitySetAsCategory(event: MatRadioChange) {
+    console.log("Debit Account: Category set as organizing entity");
+    this.showDebitAccountList = false;
+    this.showDebitCategoryList = true;
   }
 
-  organizingEntitySetAsAccount(event: MatRadioChange) {
-    console.log("Account set as organizing entity");
-    this.showAccountList = true;
-    this.showCategoryList = false;
+  debitAccountOrganizingEntitySetAsAccount(event: MatRadioChange) {
+    console.log("Debit Account: Account set as organizing entity");
+    this.showDebitAccountList = true;
+    this.showDebitCategoryList = false;
+  }
+
+  creditAccountOrganizingEntitySetAsCategory(event: MatRadioChange) {
+    console.log("Credit Account: Category set as organizing entity");
+    this.showCreditAccountList = false;
+    this.showCreditCategoryList = true;
+  }
+
+  creditAccountOrganizingEntitySetAsAccount(event: MatRadioChange) {
+    console.log("Credit Account: Account set as organizing entity");
+    this.showCreditAccountList = true;
+    this.showCreditCategoryList = false;
   }
 }

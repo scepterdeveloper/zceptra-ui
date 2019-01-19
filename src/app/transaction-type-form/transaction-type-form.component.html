@@ -90,14 +90,14 @@
                 <label class="font-weight-bold" for="name">Configure with</label><br>
 
                 <div class="form-group">
-                  <mat-radio-group  name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-                    <mat-radio-button value="CATEGORY" (change)="organizingEntitySetAsCategory($event)">Categories</mat-radio-button>
-                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="organizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
+                  <mat-radio-group name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
+                    <mat-radio-button value="CATEGORY" (change)="debitAccountOrganizingEntitySetAsCategory($event)">Categories</mat-radio-button>
+                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="debitAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
                   </mat-radio-group>
 
                   <br>
 
-                  <mat-form-field *ngIf="showAccountList">
+                  <mat-form-field *ngIf="showDebitAccountList">
                     <mat-select placeholder="Accounts" name="debitableAccounts" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOutAccounts()">
                       <mat-optgroup *ngFor="let category of categories" [label]="category.name">
                         <mat-option *ngFor="let account of category.accounts" [value]="account.id">
@@ -107,7 +107,7 @@
                     </mat-select>
                   </mat-form-field>
 
-                  <mat-form-field *ngIf="showCategoryList">
+                  <mat-form-field *ngIf="showDebitCategoryList">
                     <mat-select placeholder="Categories" name="debitableCategories" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOut()">
                       <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
                     </mat-select>
@@ -121,7 +121,33 @@
             <div class="card bg-light mb-3">
               <div class="card-header">Credit Account</div>
               <div class="card-body">
-                test
+
+                <label class="font-weight-bold" for="name">Configure with</label><br>
+
+                <div class="form-group">
+                  <mat-radio-group name="creditAccountOrganizingEntityType" [(ngModel)]="transactionType.creditAccountOrganizingEntityType">
+                    <mat-radio-button value="CATEGORY" (change)="creditAccountOrganizingEntitySetAsCategory($event)">Categories</mat-radio-button>
+                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="creditAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
+                  </mat-radio-group>
+
+                  <br>
+
+                  <mat-form-field *ngIf="showCreditAccountList">
+                    <mat-select placeholder="Accounts" name="creditableAccounts" [(ngModel)]="transactionType.creditableEntities" multiple (focusout)="onOutAccounts()">
+                      <mat-optgroup *ngFor="let category of categories" [label]="category.name">
+                        <mat-option *ngFor="let account of category.accounts" [value]="account.id">
+                          {{account.name}}
+                        </mat-option>
+                      </mat-optgroup>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field *ngIf="showCreditCategoryList">
+                    <mat-select placeholder="Categories" name="creditableCategories" [(ngModel)]="transactionType.creditableEntities" multiple (focusout)="onOut()">
+                      <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
             </div>
           </div>
