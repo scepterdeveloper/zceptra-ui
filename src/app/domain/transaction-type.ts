@@ -12,6 +12,5 @@ export class TransactionType {
   debitAccountOrganizingEntityType: String;
   creditAccountOrganizingEntityType: String;
   debitableEntities: number[];
-  creditableEntities: OrganizingEntity[];
-  selectedCategories: number[] = [25];
+  creditableEntities: number[];
 }

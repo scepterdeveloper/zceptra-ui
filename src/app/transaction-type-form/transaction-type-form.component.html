@@ -98,7 +98,7 @@
                   <br>
 
                   <mat-form-field *ngIf="showAccountList">
-                    <mat-select placeholder="Accounts" [formControl]="accountsControl" multiple>
+                    <mat-select placeholder="Accounts" name="debitableAccounts" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOutAccounts()">
                       <mat-optgroup *ngFor="let category of categories" [label]="category.name">
                         <mat-option *ngFor="let account of category.accounts" [value]="account.id">
                           {{account.name}}
@@ -107,11 +107,11 @@
                     </mat-select>
                   </mat-form-field>
 
-                  <!--<mat-form-field *ngIf="showCategoryList">-->
-                    <mat-select placeholder="Categories" name="debitableEntities" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOut()">
+                  <mat-form-field *ngIf="showCategoryList">
+                    <mat-select placeholder="Categories" name="debitableCategories" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOut()">
                       <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
                     </mat-select>
-                  <!--</mat-form-field>-->
+                  </mat-form-field>
 
                 </div>
               </div>

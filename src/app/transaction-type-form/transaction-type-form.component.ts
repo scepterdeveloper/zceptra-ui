@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
 import {FormControl} from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
 import {Category} from '../domain/category';
-import {OrganizingEntity} from '../domain/organizing-entity';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,11 +26,6 @@ const httpOptions = {
   styleUrls: ['./transaction-type-form.component.css']
 })
 export class TransactionTypeFormComponent implements OnInit {
-
-  selectedAccounts: number[];
-  accountsControl: FormControl;
-  selectedCategories: number[];
-  categoriesControl:FormControl;
 
   transactionType: TransactionType;
   categories: Category[];
@@ -53,7 +47,11 @@ export class TransactionTypeFormComponent implements OnInit {
   }
 
   onOut(){
-   console.log("Value after losing focus  is",this.selectedCategories);
+   console.log("Value after losing focus  is",this.transactionType.debitableEntities);
+ }
+
+ onOutAccounts()  {
+   console.log("Value after losing focus  is",this.transactionType.debitableEntities);
  }
 
   goBack(): void {
@@ -114,15 +112,6 @@ export class TransactionTypeFormComponent implements OnInit {
          if(data.debitAccountOrganizingEntityType == "CATEGORY") this.showCategoryList = true;
          else this.showAccountList = true;
 
-         this.selectedCategories = [];
-         this.selectedAccounts = [];
-
-         this.transactionType.debitableEntities.forEach( (organizingEntity) => {
-          this.selectedCategories.push(organizingEntity.id);
-         });
-
-         this.categoriesControl = new FormControl();
-         this.accountsControl = new FormControl(this.selectedAccounts);
      },
      error => {
        console.log("Could not get transaction type, check if feeder is up.");
