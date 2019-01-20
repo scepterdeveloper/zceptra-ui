@@ -5,6 +5,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
 import { CategoriesComponent } from './categories/categories.component';
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
 import { OrganizeComponent } from './organize/organize.component';
+import { TransactComponent } from './transact/transact.component';
 import { CategoryDetailFormComponent } from './category-detail-form/category-detail-form.component';
 import { AccountDetailFormComponent } from './account-detail-form/account-detail-form.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
@@ -16,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'organize', component: OrganizeComponent },
+  { path: 'transact', component: TransactComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent },
   { path: 'transaction-types', component: TransactionTypesComponent },

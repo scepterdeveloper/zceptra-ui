@@ -17,12 +17,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { CategoryDetailFormComponent } from './category-detail-form/category-detail-form.component';
 import { OrganizeComponent } from './organize/organize.component';
+import { TransactComponent } from './transact/transact.component';
 import { AccountDetailFormComponent } from './account-detail-form/account-detail-form.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
 import { TransactionTypeDetailComponent } from './transaction-type-detail/transaction-type-detail.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
-
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
     AccountsComponent,
     CategoryDetailFormComponent,
     OrganizeComponent,
+    TransactComponent,
     AccountDetailFormComponent,
     AccountDetailComponent,
     TransactionTypesComponent,
