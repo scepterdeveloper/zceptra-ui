@@ -13,6 +13,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'accounts/:category-id/:category-name', component: AccountsComponent },
   { path: 'edit-category/:id', component: CategoryDetailFormComponent },
   { path: 'edit-account/:categoryId/:id', component: AccountDetailFormComponent },
-  { path: 'edit-transaction-type/:id', component: TransactionTypeFormComponent }
+  { path: 'edit-transaction-type/:id', component: TransactionTypeFormComponent },
+  { path: 'edit-transaction/:id/:transaction-type-id', component: EditTransactionComponent }
 ];
 
 @NgModule({

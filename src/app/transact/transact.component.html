@@ -2,6 +2,25 @@
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
 <div class="container-fluid">
-  <div>Enter a Transaction</div>
-  <div>Recent Transactions</div>
+
+    <div>
+      <h6><b>Enter a Transaction</b></h6>
+      <div *ngIf="transactionTypes">
+        <div class="list-group">
+          <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{transactionType.name}}</h5>
+                <small class="text-muted">Used 3 days ago</small>
+            </div>
+            <small class="text-muted">{{transactionType.description}}</small>
+          </a>
+        </div>
+      </div>
+    </div>      
+    
+    <br>
+    
+  <div>
+    <h6><b>Recent Transactions</b></h6>
+  </div>
 </div>

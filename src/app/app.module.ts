@@ -23,6 +23,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
 import { TransactionTypeDetailComponent } from './transaction-type-detail/transaction-type-detail.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
+import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
     AccountDetailComponent,
     TransactionTypesComponent,
     TransactionTypeDetailComponent,
-    TransactionTypeFormComponent
+    TransactionTypeFormComponent,
+    EditTransactionComponent
   ],
   imports: [
     BrowserModule,
