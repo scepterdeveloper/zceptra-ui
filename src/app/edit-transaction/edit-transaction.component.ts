@@ -61,7 +61,7 @@ export class EditTransactionComponent implements OnInit {
     this.getTransactionType();
 
     if(id==-1)  {
-      this.operation = "Create New Transaction: ";
+      this.operation = "Enter New Transaction » ";
       this.transaction = new Transaction();
       this.transaction.id = null;
       this.transaction.date = "";
