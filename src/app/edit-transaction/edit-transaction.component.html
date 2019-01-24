@@ -9,7 +9,7 @@
     <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
 
         <mat-form-field class="normal-width">
-          <input matInput [matDatepicker]="picker" placeholder="{{transactionType.dateLabel}}" [(ngModel)]="transaction.date" name="date" #date="ngModel">
+          <input matInput [matDatepicker]="picker" placeholder="{{transactionType.dateLabel}}" [(ngModel)]="transaction.date" name="date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>    
@@ -17,7 +17,7 @@
         <br>
 
         <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount" [(ngModel)]="transaction.account">
+          <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount" [(ngModel)]="transaction.account" [compareWith]="compareAccounts">
               <mat-option *ngFor="let debitableAccount of transactionType.debitableAccounts" [value]="debitableAccount">
                 {{debitableAccount.name}}
               </mat-option>
@@ -27,13 +27,13 @@
         <br>
 
         <mat-form-field class="normal-width">
-          <input matInput placeholder="{{transactionType.amountLabel}}" value="0.00 EUR">
+          <input matInput placeholder="{{transactionType.amountLabel}}" name="amount" [(ngModel)]="transaction.amount" #transaction.amount="ngModel">
         </mat-form-field>
   
         <br>
 
         <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="creditAccount" [(ngModel)]="transaction.participatingAccount">
+          <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount" [(ngModel)]="transaction.participatingAccount" [compareWith]="compareAccounts">
               <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts" [value]="creditableAccount">
                 {{creditableAccount.name}}
               </mat-option>
@@ -43,8 +43,14 @@
         <br>
 
         <mat-form-field class="normal-width">
-          <textarea matInput placeholder="{{transactionType.descriptionLabel}}"></textarea>
-        </mat-form-field>        
+          <textarea matInput placeholder="{{transactionType.descriptionLabel}}" name="text" [(ngModel)]="transaction.text"></textarea>
+        </mat-form-field>
+        
+        <br>
+
+        <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>&nbsp;
+        <button role="button" class="btn btn-danger" (click)="saveTransaction()" [disabled]="!transactionForm.form.valid">Submit</button>
+  
         
 
       <!--<div class="container float-left">

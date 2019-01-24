@@ -71,24 +71,33 @@ export class EditTransactionComponent implements OnInit {
       this.operation = "Edit Transaction » ";
       //this.getTransaction();
     }
-
   }
 
-  /*saveTransactionType(): void  {
+  saveTransaction(): void  {
 
-        this.http.post<TransactionType>(environment.apiUrl + '/edit-transaction-type', this.transactionType, httpOptions).subscribe(
-          data => {
-            console.log("Data from server: " + data.name);
-            this.transactionType = data;
-            console.log("Posted transaction type with id: " + this.transactionType.id);
-            this.router.navigateByUrl("transaction-type-detail/" + this.transactionType.id);
-        },
-        error => {
-          console.log("Could not post transaction type, check if feeder is up.");
-          this.messageService.add(`TransactionTypeService: HTTP error while fetching transaction type; check if feeder is up.`);
-        }
-      );
-  }*/
+    console.log("Transaction: " + this.transaction.text + " / " + this.transaction.participatingAccount.id 
+      + " / " + this.transaction.participatingAccount.id + " / " + this.transaction.participatingAccount.category.name);
+
+      console.log("Account before save: " + JSON.stringify(this.transaction.account));
+
+    this.http.post<Transaction>(environment.apiUrl + '/save-transaction', this.transaction, httpOptions).subscribe(
+      data => {
+        console.log("Data from server: " + data.id);
+        this.transaction = data;
+        console.log("Posted transaction with id: " + this.transaction.id);
+        console.log("Account after save: " + JSON.stringify(data.account));
+        //this.router.navigateByUrl("transaction-type-detail/" + this.transaction.id);
+    },
+    error => {
+      console.log("Could not post transaction, check if feeder is up.");
+      this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
+    }
+    );
+  }
+
+  compareAccounts(optionOne: Account, optionTwo: Account ) : boolean {
+    return optionOne.id === optionTwo.id;
+  }  
 
   getTransactionType(): void {
 
