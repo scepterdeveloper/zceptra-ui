@@ -2,7 +2,7 @@ import { Account } from './account';
 
 export class Transaction {
     id: number;
-    date: String;
+    date: Date;
     amount: number;
     text: String;
     account: Account;

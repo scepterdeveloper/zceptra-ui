@@ -64,9 +64,10 @@ export class EditTransactionComponent implements OnInit {
       this.operation = "Enter New Transaction » ";
       this.transaction = new Transaction();
       this.transaction.id = null;
-      this.transaction.date = "";
-      this.transaction.amount = 0;
+      this.transaction.date = new Date();
       this.transaction.text = "";
+      //this.transaction.account = this.transactionType.debitableAccounts[0];
+      //console.log(this.transaction.account.name);
     }else {
       this.operation = "Edit Transaction » ";
       //this.getTransaction();
@@ -78,14 +79,14 @@ export class EditTransactionComponent implements OnInit {
     console.log("Transaction: " + this.transaction.text + " / " + this.transaction.participatingAccount.id 
       + " / " + this.transaction.participatingAccount.id + " / " + this.transaction.participatingAccount.category.name);
 
-      console.log("Account before save: " + JSON.stringify(this.transaction.account));
+      console.log("Transaction before save: " + JSON.stringify(this.transaction));
 
     this.http.post<Transaction>(environment.apiUrl + '/save-transaction', this.transaction, httpOptions).subscribe(
       data => {
         console.log("Data from server: " + data.id);
         this.transaction = data;
         console.log("Posted transaction with id: " + this.transaction.id);
-        console.log("Account after save: " + JSON.stringify(data.account));
+        console.log("Transaction after save: " + JSON.stringify(data));
         //this.router.navigateByUrl("transaction-type-detail/" + this.transaction.id);
     },
     error => {
@@ -109,6 +110,10 @@ export class EditTransactionComponent implements OnInit {
 
          console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
          this.transactionType = data;
+
+         //Defaulting
+         this.transaction.account = this.transactionType.debitableAccounts[0];
+         this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
      },
      error => {
        console.log("Could not get transaction type, check if feeder is up.");
