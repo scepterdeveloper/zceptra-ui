@@ -76,10 +76,8 @@ export class EditTransactionComponent implements OnInit {
 
   saveTransaction(): void  {
 
-    console.log("Transaction: " + this.transaction.text + " / " + this.transaction.participatingAccount.id 
-      + " / " + this.transaction.participatingAccount.id + " / " + this.transaction.participatingAccount.category.name);
-
-      console.log("Transaction before save: " + JSON.stringify(this.transaction));
+    this.transaction.transactionType = this.transactionType;
+    console.log("Transaction before save: " + JSON.stringify(this.transaction));
 
     this.http.post<Transaction>(environment.apiUrl + '/save-transaction', this.transaction, httpOptions).subscribe(
       data => {
@@ -87,7 +85,7 @@ export class EditTransactionComponent implements OnInit {
         this.transaction = data;
         console.log("Posted transaction with id: " + this.transaction.id);
         console.log("Transaction after save: " + JSON.stringify(data));
-        //this.router.navigateByUrl("transaction-type-detail/" + this.transaction.id);
+        this.router.navigateByUrl("transact");
     },
     error => {
       console.log("Could not post transaction, check if feeder is up.");

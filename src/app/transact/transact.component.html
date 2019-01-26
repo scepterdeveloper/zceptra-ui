@@ -1,8 +1,7 @@
 <div>
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
-<div class="container-fluid">
-
+<div class="m-1">
     <div>
       <h6><b>Enter a Transaction</b></h6>
       <div *ngIf="transactionTypes">
@@ -22,5 +21,48 @@
     
   <div>
     <h6><b>Recent Transactions</b></h6>
+    <div *ngIf="transactions">
+
+      <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.date}} </td>
+          </ng-container>
+
+          <!-- Transaction Type Column -->
+          <ng-container matColumnDef="transactionType">
+              <th mat-header-cell *matHeaderCellDef> Transaction Type </th>
+              <td mat-cell *matCellDef="let transaction"> {{transaction.transactionType.name}} </td>
+            </ng-container>  
+        
+          <!-- Amount Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
+          </ng-container>
+
+          <!-- Remarks Column -->
+          <ng-container matColumnDef="remarks">
+              <th mat-header-cell *matHeaderCellDef> Remarks </th>
+              <td mat-cell *matCellDef="let transaction"> {{transaction.text}} </td>
+            </ng-container>
+  
+        
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
   </div>
 </div>
+
+<footer style="padding:5px; position: fixed; bottom: 0px; width: 100%; height: 50px; background-color: lightgray">
+    <button role="button" class="btn btn-success">Clear Selection</button>
+    <button role="button" class="ml-1 btn btn-danger">Delete Selected</button>
+</footer>
+

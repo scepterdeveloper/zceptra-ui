@@ -3,208 +3,52 @@
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
 
-<div *ngIf="transactionType">
-    <h6><b>{{operation}} {{transactionType.name}}</b></h6>
-    <!--{{transactionType.dateLabel}} / {{transactionType.amountLabel}} / {{transactionType.debitAccountLabel}} / {{transactionType.creditAccountLabel}}-->
-    <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
-
-        <mat-form-field class="normal-width">
-          <input matInput [matDatepicker]="picker" required placeholder="{{transactionType.dateLabel}}" [(ngModel)]="transaction.date" name="date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>    
-
-        <br>
-
-        <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount" [(ngModel)]="transaction.account" [compareWith]="compareAccounts">
-              <mat-option *ngFor="let debitableAccount of transactionType.debitableAccounts" [value]="debitableAccount">
-                {{debitableAccount.name}}
-              </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <br>
-
-        <mat-form-field class="normal-width">
-          <input matInput placeholder="{{transactionType.amountLabel}}" name="amount" required [(ngModel)]="transaction.amount" #transaction.amount="ngModel">
-        </mat-form-field>
+<form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
+  <div class="m-1">
+      <div *ngIf="transactionType">
+          <h6><b>{{operation}} {{transactionType.name}}</b></h6>
+          <mat-form-field class="normal-width">
+            <input matInput [matDatepicker]="picker" required placeholder="{{transactionType.dateLabel}}" [(ngModel)]="transaction.date" name="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>    
   
-        <br>
-
-        <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount" [(ngModel)]="transaction.participatingAccount" [compareWith]="compareAccounts">
-              <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts" [value]="creditableAccount">
-                {{creditableAccount.name}}
-              </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <br>
   
-        <br>
-
-        <mat-form-field class="normal-width">
-          <textarea matInput placeholder="{{transactionType.descriptionLabel}}" required name="text" [(ngModel)]="transaction.text"></textarea>
-        </mat-form-field>
-        
-        <br>
-
-        <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>&nbsp;
-        <button role="button" class="btn btn-danger" (click)="saveTransaction()" [disabled]="!transactionForm.form.valid">Submit</button>
+          <mat-form-field class="normal-width">
+            <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount" [(ngModel)]="transaction.account" [compareWith]="compareAccounts">
+                <mat-option *ngFor="let debitableAccount of transactionType.debitableAccounts" [value]="debitableAccount">
+                  {{debitableAccount.name}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
   
-        
+          <br>
+  
+          <mat-form-field class="normal-width">
+            <input matInput placeholder="{{transactionType.amountLabel}}" name="amount" required [(ngModel)]="transaction.amount" #transaction.amount="ngModel">
+          </mat-form-field>
+    
+          <br>
+  
+          <mat-form-field class="normal-width">
+            <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount" [(ngModel)]="transaction.participatingAccount" [compareWith]="compareAccounts">
+                <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts" [value]="creditableAccount">
+                  {{creditableAccount.name}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+          <br>
+  
+          <mat-form-field class="normal-width">
+            <textarea matInput placeholder="{{transactionType.descriptionLabel}}" required name="text" [(ngModel)]="transaction.text"></textarea>
+          </mat-form-field> 
+      </div>          
+  </div>
 
-      <!--<div class="container float-left">
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label class="font-weight-bold" for="name">Name</label>
-              <input type="text" class="form-control" id="name" required [(ngModel)]="transactionType.name" name="name" #name="ngModel">
-              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label class="font-weight-bold" for="description">Description</label>
-              <input type="text" class="form-control" id="description" required [(ngModel)]="transactionType.description" name="description" #description="ngModel">
-              <div [hidden]="description.valid || description.pristine" class="alert alert-danger">Description is required</div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="card bg-light mb-3">
-              <div class="card-header">UI Labels</div>
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label class="font-weight-bold" for="name">Date</label>
-                        <input type="text" class="form-control" id="dateLabel" required [(ngModel)]="transactionType.dateLabel" name="dateLabel" #dateLabel="ngModel">
-                        <div [hidden]="dateLabel.valid || dateLabel.pristine" class="alert alert-danger">Label for Date is required</div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label class="font-weight-bold" for="name">Amount</label>
-                        <input type="text" class="form-control" id="amountLabel" required [(ngModel)]="transactionType.amountLabel" name="amountLabel" #amountLabel="ngModel">
-                        <div [hidden]="amountLabel.valid || amountLabel.pristine" class="alert alert-danger">Label for Amount is required</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label class="font-weight-bold" for="name">Debit Account</label>
-                        <input type="text" class="form-control" id="debitAccountLabel" required [(ngModel)]="transactionType.debitAccountLabel" name="debitAccountLabel" #debitAccountLabel="ngModel">
-                        <div [hidden]="debitAccountLabel.valid || debitAccountLabel.pristine" class="alert alert-danger">Label for Debit Account is required</div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label class="font-weight-bold" for="name">Credit Account</label>
-                        <input type="text" class="form-control" id="creditAccountLabel" required [(ngModel)]="transactionType.creditAccountLabel" name="creditAccountLabel" #creditAccountLabel="ngModel">
-                        <div [hidden]="creditAccountLabel.valid || creditAccountLabel.pristine" class="alert alert-danger">Label for Credit Account is required</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label class="font-weight-bold" for="name">Description</label>
-                        <input type="text" class="form-control" id="descriptionLabel" required [(ngModel)]="transactionType.descriptionLabel" name="descriptionLabel" #descriptionLabel="ngModel">
-                        <div [hidden]="descriptionLabel.valid || descriptionLabel.pristine" class="alert alert-danger">Label for Description is required</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <label class="font-weight-bold">Accounting Configuration</label>
-
-        <div class="row">
-          <div class="col">
-            <div class="card bg-light mb-3">
-              <div class="card-header">Debit Account</div>
-              <div class="card-body mt-1 ml-1">
-                <label class="font-weight-bold" for="name">Configure with</label><br>
-
-                <div class="form-group">
-                  <mat-radio-group name="debitAccountOrganizingEntityType" [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-                    <mat-radio-button value="CATEGORY" (change)="debitAccountOrganizingEntitySetAsCategory($event)">Categories</mat-radio-button>
-                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="debitAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
-                  </mat-radio-group>
-
-                  <br>
-
-                  <mat-form-field *ngIf="showDebitAccountList">
-                    <mat-select placeholder="Accounts" name="debitableAccounts" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOutAccounts()">
-                      <mat-optgroup *ngFor="let category of categories" [label]="category.name">
-                        <mat-option *ngFor="let account of category.accounts" [value]="account.id">
-                          {{account.name}}
-                        </mat-option>
-                      </mat-optgroup>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field *ngIf="showDebitCategoryList">
-                    <mat-select placeholder="Categories" name="debitableCategories" [(ngModel)]="transactionType.debitableEntities" multiple (focusout)="onOut()">
-                      <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card bg-light mb-3">
-              <div class="card-header">Credit Account</div>
-              <div class="card-body">
-
-                <label class="font-weight-bold" for="name">Configure with</label><br>
-
-                <div class="form-group">
-                  <mat-radio-group name="creditAccountOrganizingEntityType" [(ngModel)]="transactionType.creditAccountOrganizingEntityType">
-                    <mat-radio-button value="CATEGORY" (change)="creditAccountOrganizingEntitySetAsCategory($event)">Categories</mat-radio-button>
-                    <mat-radio-button class="ml-2" value="ACCOUNT" (change)="creditAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
-                  </mat-radio-group>
-
-                  <br>
-
-                  <mat-form-field *ngIf="showCreditAccountList">
-                    <mat-select placeholder="Accounts" name="creditableAccounts" [(ngModel)]="transactionType.creditableEntities" multiple (focusout)="onOutAccounts()">
-                      <mat-optgroup *ngFor="let category of categories" [label]="category.name">
-                        <mat-option *ngFor="let account of category.accounts" [value]="account.id">
-                          {{account.name}}
-                        </mat-option>
-                      </mat-optgroup>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field *ngIf="showCreditCategoryList">
-                    <mat-select placeholder="Categories" name="creditableCategories" [(ngModel)]="transactionType.creditableEntities" multiple (focusout)="onOut()">
-                      <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>
-            <button role="button" class="btn btn-danger" (click)="saveTransactionType()" [disabled]="!transactionTypeForm.form.valid">Submit</button>
-          </div>
-        </div>
-      </div>-->
-    </form>
-</div>
+  <footer style="padding:5px; position: fixed; bottom: 0px; width: 100%; height: 50px; background-color: lightgray">
+      <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>
+      <button role="button" class="ml-1 btn btn-danger" (click)="saveTransaction()" [disabled]="!transactionForm.form.valid">Submit</button>
+  </footer>
+</form>
