@@ -1,9 +1,23 @@
-.navbutton {
+/*.navbutton {
   margin-top: 5px;
   margin-bottom: 5px;
   border: none;
+}*/
+
+.transact {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: darkgray;
+  overflow-y: inherit;
 }
 
-table {
-  width: 100%;
+.transact-pane {
+  flex-grow: 1;
+  overflow-y: auto
+}
+
+.list-transactions-pane {
+  flex-grow: 1;
+  overflow-y: auto;
 }
