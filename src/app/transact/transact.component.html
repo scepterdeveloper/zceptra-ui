@@ -1,9 +1,9 @@
 <div class="transact">
-  <!--<div>
+  <div>
     <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-  </div>-->
+  </div>
   <div class="transact-pane">
-    <!--<h6><b>Enter a Transaction</b></h6>
+    <h6><b>Enter a Transaction</b></h6>
     <div *ngIf="transactionTypes">
       <div class="list-group">
         <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}"
@@ -15,57 +15,12 @@
           <small class="text-muted">{{transactionType.description}}</small>
         </a>
       </div>
-    </div>-->
-    <p>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-      test text test text<br>
-    </p>
-  </div>
-  <div class="list-transactions-pane" style="background-color: crimson">
+    </div>
 
-      <p>
-          test text test text11<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text11<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text<br>
-          test text test text11<br>
-        </p>
-    
-    <!--<h6><b>Recent Transactions</b></h6>
-    <div *ngIf="transactions">
+  </div>
+  <div class="list-transactions-pane">
+    <h6><b>Recent Transactions</b></h6>
+    <div *ngIf="transactions" class="transactions-list">
 
       <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
 
@@ -92,7 +47,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
-  </div>-->
+  </div>
 
   <!--<footer>
     <button role="button" class="btn btn-success">Clear Selection</button>
