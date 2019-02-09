@@ -13,7 +13,8 @@
 
 .transact-pane {
   flex-grow: 1;
-  overflow-y: auto
+  overflow-y: auto;
+  height: 30%;
 }
 
 .list-transactions-pane {
@@ -21,8 +22,5 @@
   flex-direction: column;
   flex-grow: 1;
   overflow-y: auto;
-}
-
-.transactions-list {
-  flex-grow: 1;
+  background-color:lightgreen;
 }
