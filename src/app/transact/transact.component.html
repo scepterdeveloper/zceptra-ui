@@ -2,8 +2,10 @@
   <div>
     <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div class="transact-pane">
+  <div>
     <h6><b>Enter a Transaction</b></h6>
+  </div>
+  <div class="transact-pane">
     <div *ngIf="transactionTypes">
       <div class="list-group">
         <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}"
@@ -16,10 +18,11 @@
         </a>
       </div>
     </div>
-
   </div>
-  <div class="list-transactions-pane">
+  <div>
     <h6><b>Recent Transactions</b></h6>
+  </div>  
+  <div class="list-transactions-pane">
     <div *ngIf="transactions" class="transactions-list">
 
       <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
