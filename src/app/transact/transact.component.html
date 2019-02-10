@@ -11,8 +11,8 @@
 
       <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}">
         <div class="transact-type-box">
-          <h6>{{transactionType.name}}</h6>
-          <p style="font-size: 0.75em; color:paleturquoise">{{transactionType.description}}</p>
+          {{transactionType.name}}
+          <p class="transact-type-box-decription">{{transactionType.description}}</p>
         </div>
       </a>
 
