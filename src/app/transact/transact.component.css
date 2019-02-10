@@ -45,18 +45,18 @@
 }
 
 .transact-type-box {
-  height: 10vh;
-  width: 10vh;
+  height: 13vh;
+  width: 13vh;
   margin: 1px;
   padding: 2px;
   text-align: center;
   background-color: dimgray;
-  font-size: 0.8em;
+  font-size: 0.7em;
   color: aliceblue;
 }
 
 .transact-type-box-decription {
-  font-size: 0.75em;
+  font-size: 0.6em;
   color:paleturquoise
 }
 
