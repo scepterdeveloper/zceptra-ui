@@ -14,7 +14,7 @@
 .transact-pane {
   flex-grow: 1;
   overflow-y: auto;
-  height: 30%;
+  height: 35%;
 }
 
 .list-transactions-pane {
@@ -24,31 +24,30 @@
   overflow-y: auto;
 }
 
-.mat-column-date{
-  width: 30%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.mat-column-amount{
-  width: 10%;
-  text-align: right;
+.date-column {
+  width: 100px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;  
 }
 
-.mat-column-transactionType{
-  width: 25%;
+.remarks-column {
+  width: 250px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;   
 }
 
-.mat-column-remarks{
-  width: 35%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.transact-type-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.transact-type-box {
+  height: 100px;
+  width: 150px;
+  margin: 5px;
+  background-color: powderblue;
 }
