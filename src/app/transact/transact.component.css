@@ -14,7 +14,7 @@
 .transact-pane {
   flex-grow: 1;
   overflow-y: auto;
-  height: 35%;
+  height: 40%;
 }
 
 .list-transactions-pane {
@@ -42,12 +42,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .transact-type-box {
-  height: 100px;
-  width: 150px;
-  margin: 5px;
-  background-color: powderblue;
+  height: 10vh;
+  width: 10vh;
+  margin: 1px;
+  padding: 2px;
+  text-align: center;
+  background-color: dimgray;
+  color: aliceblue;
 }

@@ -3,16 +3,16 @@
     <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
           class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div>
-    <h6><b>Enter a Transaction</b></h6>
+  <div style="background-color:lightgray">
+    <h6><b>Record Transaction</b></h6>
   </div>
   <div class="transact-pane">
     <div *ngIf="transactionTypes" class="transact-type-container">
 
       <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}">
         <div class="transact-type-box">
-          <h5 class="mb-1">{{transactionType.name}}</h5>
-          <small class="text-muted">{{transactionType.description}}</small>
+          <h6>{{transactionType.name}}</h6>
+          <p style="font-size: 0.75em; color:paleturquoise">{{transactionType.description}}</p>
         </div>
       </a>
 
@@ -29,7 +29,7 @@
 
     </div>
   </div>
-  <div>
+  <div style="background-color:lightgray">
     <h6><b>Recent Transactions</b></h6>
   </div>
   <div class="list-transactions-pane">
@@ -59,7 +59,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->
   </div>
 
   <!--<footer>
