@@ -22,5 +22,33 @@
   flex-direction: column;
   flex-grow: 1;
   overflow-y: auto;
-  background-color:lightgreen;
+}
+
+.mat-column-date{
+  width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-column-amount{
+  width: 10%;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+
+.mat-column-transactionType{
+  width: 25%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-column-remarks{
+  width: 35%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
