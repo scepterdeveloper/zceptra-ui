@@ -56,10 +56,11 @@
 }
 
 .transact-type-box-decription {
-  width: inherit;
-  white-space: pre-wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;   
   font-size: 0.75em;
   color:paleturquoise
+}
+
+.transactions-list-text {
+  font-size: 0.8em;
+  color: dimgray;
 }
