@@ -46,8 +46,8 @@
           <tr *ngFor="let transaction of transactions">
             <td>{{transaction.date | date}}</td>
             <td>{{transaction.transactionType.name}}</td>
-            <td>@{{transaction.amount}}</td>
-            <td>@{{transaction.text}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>{{transaction.text}}</td>
           </tr>
         </tbody>
       </table>
