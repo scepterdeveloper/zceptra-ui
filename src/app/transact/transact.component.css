@@ -62,5 +62,12 @@
 
 .transactions-list-text {
   font-size: 0.8em;
-  color: dimgray;
+  color: darkslategray;
+}
+
+.caption {
+  padding: 2px;
+  font-size: 0.8em;
+  color: white;
+  background-color: darkgray;
 }
