@@ -60,7 +60,6 @@
   padding: 3px;
 }
 
-
 @media all and (max-width: 750px) {
   /* CSS rules here for screens lower than 750px */
     .transact-type-box {
@@ -120,4 +119,8 @@
       color: white;
       background-color: darkgray;
     }  
+  }
+
+  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: lightyellow;
   }

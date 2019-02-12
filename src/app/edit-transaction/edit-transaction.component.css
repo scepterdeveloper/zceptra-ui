@@ -7,3 +7,20 @@
 .normal-width {
   width: 100%;
 }
+
+.edit-transaction {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: inherit;
+  align-self: stretch;
+}
+
+.edit-transaction-pane {
+  flex-grow: 1;
+}
+
+.edit-transaction-footer {
+  background-color: silver;
+  padding: 3px;
+}
