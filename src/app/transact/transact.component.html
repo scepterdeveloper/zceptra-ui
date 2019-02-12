@@ -16,17 +16,6 @@
         </div>
       </a>
 
-      <!--<div class="list-group">
-        <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction/-1/{{transactionType.id}}"
-          class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{transactionType.name}}</h5>
-            <small class="text-muted">Used 3 days ago</small>
-          </div>
-          <small class="text-muted">{{transactionType.description}}</small>
-        </a>
-      </div>-->
-
     </div>
   </div>
   <div style="background-color:lightgray">
@@ -51,39 +40,10 @@
           </tr>
         </tbody>
       </table>
-
-    <!--<table *ngIf="transactions" mat-table [dataSource]="transactions" class="mat-elevation-z8">
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let transaction">
-          <div class="date-column">{{transaction.date | date}}</div>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="transactionType">
-        <th mat-header-cell *matHeaderCellDef>Type</th>
-        <td mat-cell *matCellDef="let transaction"> {{transaction.transactionType.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="remarks">
-        <th mat-header-cell *matHeaderCellDef>&nbsp;Remarks </th>
-        <td mat-cell *matCellDef="let transaction"> &nbsp;<div class="remarks-column">{{transaction.text}}</div>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>-->
-    <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->
   </div>
 
-  <!--<footer>
+  <div class="transact-footer">
     <button role="button" class="btn btn-success">Clear Selection</button>
     <button role="button" class="ml-1 btn btn-danger">Delete Selected</button>
-  </footer>-->
-
+  </div>
 </div>

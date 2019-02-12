@@ -9,12 +9,13 @@
   flex-direction: column;
   height: 100%;
   overflow-y: inherit;
+  align-self: stretch;
 }
 
 .transact-pane {
   flex-grow: 1;
   overflow-y: auto;
-  height: 40%;
+  height: 30%;
 }
 
 .list-transactions-pane {
@@ -42,6 +43,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.transact-footer {
 }
 
 
