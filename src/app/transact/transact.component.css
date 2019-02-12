@@ -44,30 +44,65 @@
   flex-wrap: wrap;
 }
 
-.transact-type-box {
-  height: 12vh;
-  width: 12vh;
-  margin: 1px;
-  padding: 2px;
-  text-align: center;
-  background-color: dimgray;
-  font-size: 0.7em;
-  color: aliceblue;
-}
 
-.transact-type-box-decription {
-  font-size: 0.6em;
-  color:paleturquoise
-}
-
-.transactions-list-text {
-  font-size: 0.6em;
-  color: dimgray;
-}
-
-.caption {
-  padding: 2px;
-  font-size: 0.8em;
-  color: white;
-  background-color: darkgray;
-}  
+@media all and (max-width: 750px) {
+  /* CSS rules here for screens lower than 750px */
+    .transact-type-box {
+      height: 12vh;
+      width: 12vh;
+      margin: 1px;
+      padding: 2px;
+      text-align: center;
+      background-color: dimgray;
+      font-size: 0.7em;
+      color: aliceblue;
+    }
+    
+    .transact-type-box-decription {
+      font-size: 0.6em;
+      color:paleturquoise
+    }
+    
+    .transactions-list-text {
+      font-size: 0.6em;
+      color: dimgray;
+    }
+    
+    .caption {
+      padding: 2px;
+      font-size: 0.8em;
+      color: white;
+      background-color: darkgray;
+    }  
+  }
+  @media all and (min-width: 750px) {
+  /* CSS rules here for screens above 750px */
+    .transact-type-box {
+      height: 15vh;
+      width: 15vh;
+      margin: 1px;
+      padding: 2px;
+      text-align: center;
+      /*background-color: dimgray;*/
+      background-color: brown;
+      /*font-size: 0.95em;*/
+      color: aliceblue;
+    }
+    
+    .transact-type-box-decription {
+      font-size: 0.8em;
+      color:paleturquoise
+    }
+    
+    .transactions-list-text {
+      font-size: 0.8em;
+      color: dimgray;
+    }
+    
+    .caption {
+      padding: 2px;
+      /*font-size: 0.8em;*/
+      color: white;
+      background-color: darkgray;
+    }  
+  }
