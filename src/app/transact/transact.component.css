@@ -48,14 +48,14 @@
 @media all and (max-width: 750px) {
   /* CSS rules here for screens lower than 750px */
     .transact-type-box {
-      height: 12vh;
+      height: 10vh;
       width: 12vh;
       margin: 1px;
       padding: 2px;
       text-align: center;
       /*background-color: dimgray;*/
-      background-color: blueviolet;
-      font-size: 0.7em;
+      background-color: dimgray;
+      font-size: 0.65em;
       color: aliceblue;
     }
     
