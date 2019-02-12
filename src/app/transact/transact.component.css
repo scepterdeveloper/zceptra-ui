@@ -53,7 +53,8 @@
       margin: 1px;
       padding: 2px;
       text-align: center;
-      background-color: dimgray;
+      /*background-color: dimgray;*/
+      background-color: blueviolet;
       font-size: 0.7em;
       color: aliceblue;
     }
