@@ -35,6 +35,10 @@ export class TransactComponent implements OnInit {
     this.router.navigateByUrl("/dashboard");
   }
 
+  editTransaction(transaction: Transaction): void {
+    console.log("Selected Transaction: " + transaction.text);
+  }
+
   getTransactionTypes(): void {
     console.log("Getting transaction types from " + environment.apiUrl + '/get-all-transaction-types');
     this.http.get<TransactionType[]>(environment.apiUrl + '/get-all-transaction-types').subscribe(

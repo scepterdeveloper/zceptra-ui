@@ -25,6 +25,7 @@
     <table class="table table-striped table-sm table table-hover" *ngIf="transactions">
         <thead>
           <tr>
+            <th scope="col"></th>
             <th scope="col">Date</th>
             <th scope="col">Type</th>
             <th scope="col" class="text-right">Amount</th>
@@ -32,7 +33,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let transaction of transactions">
+          <tr *ngFor="let transaction of transactions" (click)="editTransaction(transaction)">
+            <td><mat-checkbox (click)="selectTransaction(transaction)"></mat-checkbox></td>
             <td>{{transaction.date | date}}</td>
             <td>{{transaction.transactionType.name}}</td>
             <td class="text-right">{{transaction.amount | currency}}</td>
