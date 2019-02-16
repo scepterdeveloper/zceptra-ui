@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import {FormControl} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
 import {Category} from '../domain/category';
 import { Transaction } from '../domain/transaction';
@@ -33,6 +33,8 @@ export class EditTransactionComponent implements OnInit {
 
   operation: String;
   submitted = false;
+
+  amount = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private route: ActivatedRoute,
@@ -119,4 +121,10 @@ export class EditTransactionComponent implements OnInit {
      }
    );
   }
+
+  getErrorMessage() {
+    return this.amount.hasError('required') ? 'Amount is required' :
+        this.amount.hasError('email') ? 'Not a valid amount' :
+            '';
+  }  
 }
