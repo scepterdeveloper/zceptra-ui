@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {TransactionType} from '../domain/transaction-type';
-import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
-import {HttpClient} from '@angular/common/http';
-import {MessageService} from '../services/message.service';
-import {Http} from '@angular/http';
+import { TransactionType } from '../domain/transaction-type';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { MessageService } from '../services/message.service';
+import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
-import {Category} from '../domain/category';
+import { Category } from '../domain/category';
 import { Transaction } from '../domain/transaction';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -33,8 +33,6 @@ export class EditTransactionComponent implements OnInit {
 
   operation: String;
   submitted = false;
-
-  amount = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private route: ActivatedRoute,
@@ -62,7 +60,7 @@ export class EditTransactionComponent implements OnInit {
     //const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
     this.getTransactionType();
 
-    if(id==-1)  {
+    if (id == -1) {
       this.operation = "Enter New Transaction » ";
       this.transaction = new Transaction();
       this.transaction.id = null;
@@ -70,13 +68,13 @@ export class EditTransactionComponent implements OnInit {
       this.transaction.text = "";
       //this.transaction.account = this.transactionType.debitableAccounts[0];
       //console.log(this.transaction.account.name);
-    }else {
+    } else {
       this.operation = "Edit Transaction » ";
-      //this.getTransaction();
+      this.getTransaction();
     }
   }
 
-  saveTransaction(): void  {
+  saveTransaction(): void {
 
     this.transaction.transactionType = this.transactionType;
     console.log("Transaction before save: " + JSON.stringify(this.transaction));
@@ -88,43 +86,53 @@ export class EditTransactionComponent implements OnInit {
         console.log("Posted transaction with id: " + this.transaction.id);
         console.log("Transaction after save: " + JSON.stringify(data));
         this.router.navigateByUrl("transact");
-    },
-    error => {
-      console.log("Could not post transaction, check if feeder is up.");
-      this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
-    }
+      },
+      error => {
+        console.log("Could not post transaction, check if feeder is up.");
+        this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
+      }
     );
   }
 
-  compareAccounts(optionOne: Account, optionTwo: Account ) : boolean {
+  compareAccounts(optionOne: Account, optionTwo: Account): boolean {
     return optionOne.id === optionTwo.id;
-  }  
+  }
+
+  getTransaction(): void {
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.http.get<Transaction>(environment.apiUrl + '/get-transaction?id=' + id).subscribe(
+      data => {
+
+        console.log("Data from the server: " + data.amount + " | " + data.text);
+        this.transaction = data;
+      },
+      error => {
+        console.log("Could not get transaction, check if feeder is up.");
+        this.messageService.add(`Transaction: HTTP error while fetching transaction; check if feeder is up.`);
+      }
+    );
+  }
 
   getTransactionType(): void {
 
-     const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
-     console.log("Getting transaction type with id: " + transactionTypeId);
+    const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
+    console.log("Getting transaction type with id: " + transactionTypeId);
 
-     this.http.get<TransactionType>(environment.apiUrl + '/get-transaction-type?id=' + transactionTypeId).subscribe(
-       data => {
+    this.http.get<TransactionType>(environment.apiUrl + '/get-transaction-type?id=' + transactionTypeId).subscribe(
+      data => {
 
-         console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
-         this.transactionType = data;
+        console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
+        this.transactionType = data;
 
-         //Defaulting
-         this.transaction.account = this.transactionType.debitableAccounts[0];
-         this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
-     },
-     error => {
-       console.log("Could not get transaction type, check if feeder is up.");
-       this.messageService.add(`TransactionTypeService: HTTP error while fetching transaction type; check if feeder is up.`);
-     }
-   );
+        //Defaulting
+        this.transaction.account = this.transactionType.debitableAccounts[0];
+        this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
+      },
+      error => {
+        console.log("Could not get transaction type, check if feeder is up.");
+        this.messageService.add(`TransactionTypeService: HTTP error while fetching transaction type; check if feeder is up.`);
+      }
+    );
   }
-
-  getErrorMessage() {
-    return this.amount.hasError('required') ? 'Amount is required' :
-        this.amount.hasError('email') ? 'Not a valid amount' :
-            '';
-  }  
 }

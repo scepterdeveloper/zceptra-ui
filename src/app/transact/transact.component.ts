@@ -37,6 +37,7 @@ export class TransactComponent implements OnInit {
 
   editTransaction(transaction: Transaction): void {
     console.log("Selected Transaction: " + transaction.text);
+    this.router.navigateByUrl("edit-transaction/" + transaction.id +  "/" + transaction.transactionType.id);
   }
 
   getTransactionTypes(): void {
@@ -59,6 +60,7 @@ export class TransactComponent implements OnInit {
       data => {
         console.log("Data from server: " + data.length);
         this.transactions = data;
+        this.transactions.sort((val1, val2)=>{return val1.date < val2.date ? 1:-1});
     },
     error => {
       console.log("Could not get transactions, check if feeder is up.");
