@@ -57,17 +57,17 @@ export class EditTransactionComponent implements OnInit {
   ngOnInit(): void {
 
     const id = +this.route.snapshot.paramMap.get('id');
-    //const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
+    const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
+    this.transaction = new Transaction();
     this.getTransactionType();
 
     if (id == -1) {
       this.operation = "Enter New Transaction » ";
-      this.transaction = new Transaction();
       this.transaction.id = null;
       this.transaction.date = new Date();
       this.transaction.text = "";
-      //this.transaction.account = this.transactionType.debitableAccounts[0];
-      //console.log(this.transaction.account.name);
+      this.transaction.transactionType = this.transactionType;
+
     } else {
       this.operation = "Edit Transaction » ";
       this.getTransaction();
@@ -104,7 +104,7 @@ export class EditTransactionComponent implements OnInit {
     this.http.get<Transaction>(environment.apiUrl + '/get-transaction?id=' + id).subscribe(
       data => {
 
-        console.log("Data from the server: " + data.amount + " | " + data.text);
+        console.log("Data from the server: " + data.amount + " | " + data.text + " | " + data.account.id + " (" + data.account.name + ")");
         this.transaction = data;
       },
       error => {
