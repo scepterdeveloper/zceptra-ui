@@ -56,9 +56,9 @@ export class EditTransactionComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.transaction = new Transaction();
     const id = +this.route.snapshot.paramMap.get('id');
     const transactionTypeId = +this.route.snapshot.paramMap.get('transaction-type-id');
-    this.transaction = new Transaction();
     this.getTransactionType();
 
     if (id == -1) {
@@ -67,6 +67,10 @@ export class EditTransactionComponent implements OnInit {
       this.transaction.date = new Date();
       this.transaction.text = "";
       this.transaction.transactionType = this.transactionType;
+
+      //Defaulting
+      this.transaction.account = this.transactionType.debitableAccounts[0];
+      this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
 
     } else {
       this.operation = "Edit Transaction » ";
@@ -95,6 +99,10 @@ export class EditTransactionComponent implements OnInit {
   }
 
   compareAccounts(optionOne: Account, optionTwo: Account): boolean {
+    console.log("---------------compareWith-----------------");
+    console.log("optionOne: " + optionOne.id + " | " + optionOne.name);
+    console.log("optionTwo: " + optionTwo.id + " | " + optionTwo.name);
+
     return optionOne.id === optionTwo.id;
   }
 
@@ -125,9 +133,6 @@ export class EditTransactionComponent implements OnInit {
         console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
         this.transactionType = data;
 
-        //Defaulting
-        this.transaction.account = this.transactionType.debitableAccounts[0];
-        this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
       },
       error => {
         console.log("Could not get transaction type, check if feeder is up.");
