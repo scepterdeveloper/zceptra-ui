@@ -33,12 +33,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let transaction of transactions" (click)="editTransaction(transaction)">
-            <td><mat-checkbox (click)="selectTransaction(transaction)"></mat-checkbox></td>
-            <td>{{transaction.date | date}}</td>
-            <td>{{transaction.transactionType.name}}</td>
-            <td class="text-right">{{transaction.amount | currency}}</td>
-            <td>{{transaction.text}}</td>
+          <tr *ngFor="let transaction of transactions">
+            <td><mat-checkbox value={{transaction.id}} (change)="markTransactionForDeletion($event, transaction)"></mat-checkbox></td>
+            <td (click)="editTransaction(transaction)">{{transaction.date | date}}</td>
+            <td (click)="editTransaction(transaction)">{{transaction.transactionType.name}}</td>
+            <td (click)="editTransaction(transaction)"class="text-right">{{transaction.amount | currency}}</td>
+            <td (click)="editTransaction(transaction)">{{transaction.text}}</td>
           </tr>
         </tbody>
       </table>
@@ -46,6 +46,6 @@
 
   <div class="transact-footer">
     <button role="button" class="btn btn-success btn-sm">Clear Selection</button>
-    <button role="button" class="ml-1 btn btn-danger btn-sm">Delete Selected</button>
+    <button role="button" (click)="deleteSelected()" class="ml-1 btn btn-danger btn-sm">Delete Selected</button>
   </div>
 </div>

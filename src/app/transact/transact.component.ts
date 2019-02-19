@@ -6,6 +6,13 @@ import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../services/message.service';
 import { environment } from '../../environments/environment';
 import { Transaction } from '../domain/transaction';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Component({
   selector: 'app-transact',
@@ -16,6 +23,7 @@ export class TransactComponent implements OnInit {
 
   transactionTypes: TransactionType[];
   transactions: Transaction[];
+  transactionsForDelete: Set<number>;
   displayedColumns: string[] = ['date', 'transactionType', 'amount', 'remarks'];
 
   constructor(
@@ -28,6 +36,7 @@ export class TransactComponent implements OnInit {
   ngOnInit() {
     this.getTransactionTypes();
     this.getTransactions();
+    this.transactionsForDelete = new Set<number>();
   }
 
   goHome(): void {
@@ -69,12 +78,28 @@ export class TransactComponent implements OnInit {
    );
   }
 
+  markTransactionForDeletion(event, markedTransaction: Transaction) {
+    console.log("Marked for delete: " + markedTransaction.id + " Status: " + event.checked);
 
-  /*viewCategories(): void  {
-    this.router.navigateByUrl("/categories");
+    if(event.checked) {
+      this.transactionsForDelete.add(markedTransaction.id);
+    }
+    else  {
+      this.transactionsForDelete.delete(markedTransaction.id);
+    }
   }
 
-  viewTransactionTypes(): void  {
-    this.router.navigateByUrl("/transaction-types");
-  }*/
+  deleteSelected(): void  {
+
+    console.log("Delete Set: " + this.transactionsForDelete.size);
+
+    this.http.post<Transaction>(environment.apiUrl + '/delete-transactions', this.transactionsForDelete, httpOptions).subscribe(
+      data => {
+      },
+      error => {
+        console.log("Could not delete transactions, check if feeder is up.");
+        this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
+      }
+    );
+  }
 }

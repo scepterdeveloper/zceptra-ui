@@ -33,6 +33,7 @@ export class EditTransactionComponent implements OnInit {
 
   operation: String;
   submitted = false;
+  isNew = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -62,17 +63,15 @@ export class EditTransactionComponent implements OnInit {
     this.getTransactionType();
 
     if (id == -1) {
+      this.isNew = true;
       this.operation = "Enter New Transaction » ";
       this.transaction.id = null;
       this.transaction.date = new Date();
       this.transaction.text = "";
       this.transaction.transactionType = this.transactionType;
 
-      //Defaulting
-      this.transaction.account = this.transactionType.debitableAccounts[0];
-      this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
-
     } else {
+      this.isNew = false;
       this.operation = "Edit Transaction » ";
       this.getTransaction();
     }
@@ -132,7 +131,11 @@ export class EditTransactionComponent implements OnInit {
 
         console.log("Data from the server: " + data.name + " | " + data.debitAccountOrganizingEntityType);
         this.transactionType = data;
-
+        if(this.isNew)  {
+          //Defaulting
+          this.transaction.account = this.transactionType.debitableAccounts[0];
+          this.transaction.participatingAccount = this.transactionType.creditableAccounts[0];
+        }
       },
       error => {
         console.log("Could not get transaction type, check if feeder is up.");
