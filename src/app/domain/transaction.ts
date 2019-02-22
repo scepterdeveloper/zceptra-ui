@@ -9,4 +9,5 @@ export class Transaction {
     account: Account;
     participatingAccount: Account;
     transactionType: TransactionType;
+    markedForDelete: boolean;
   }

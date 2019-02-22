@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr'; //https://www.npmjs.com/package/ngx-toastr
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
@@ -46,6 +47,12 @@ import { EditTransactionComponent } from './edit-transaction/edit-transaction.co
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+      closeButton: true      
+    }),
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,

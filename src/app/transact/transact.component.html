@@ -34,7 +34,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let transaction of transactions">
-            <td><mat-checkbox value={{transaction.id}} (change)="markTransactionForDeletion($event, transaction)"></mat-checkbox></td>
+            <!--<td><mat-checkbox value={{transaction.id}} (change)="markTransactionForDeletion($event, transaction)"></mat-checkbox></td>-->
+            <td><mat-checkbox [(ngModel)]="transaction.markedForDelete"></mat-checkbox></td>
             <td (click)="editTransaction(transaction)">{{transaction.date | date}}</td>
             <td (click)="editTransaction(transaction)">{{transaction.transactionType.name}}</td>
             <td (click)="editTransaction(transaction)"class="text-right">{{transaction.amount | currency}}</td>

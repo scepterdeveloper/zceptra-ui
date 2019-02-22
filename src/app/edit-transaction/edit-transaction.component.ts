@@ -14,6 +14,7 @@ import { FormControl } from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
 import { Category } from '../domain/category';
 import { Transaction } from '../domain/transaction';
+import { ToastrService } from 'ngx-toastr';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -40,7 +41,8 @@ export class EditTransactionComponent implements OnInit {
     private location: Location,
     private http: HttpClient,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private toastr: ToastrService
   ) { }
 
   onSubmit() {
@@ -86,11 +88,13 @@ export class EditTransactionComponent implements OnInit {
       data => {
         console.log("Data from server: " + data.id);
         this.transaction = data;
+        this.toastr.success('Success!', 'Save Transaction');
         console.log("Posted transaction with id: " + this.transaction.id);
         console.log("Transaction after save: " + JSON.stringify(data));
         this.router.navigateByUrl("transact");
       },
       error => {
+        this.toastr.error('Oops! Something went wrong :-(', 'Save Failed');
         console.log("Could not post transaction, check if feeder is up.");
         this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
       }
@@ -98,10 +102,6 @@ export class EditTransactionComponent implements OnInit {
   }
 
   compareAccounts(optionOne: Account, optionTwo: Account): boolean {
-    console.log("---------------compareWith-----------------");
-    console.log("optionOne: " + optionOne.id + " | " + optionOne.name);
-    console.log("optionTwo: " + optionTwo.id + " | " + optionTwo.name);
-
     return optionOne.id === optionTwo.id;
   }
 

@@ -7,6 +7,7 @@ import {MessageService} from '../services/message.service';
 import { environment } from '../../environments/environment';
 import { Transaction } from '../domain/transaction';
 import { HttpHeaders } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -23,20 +24,20 @@ export class TransactComponent implements OnInit {
 
   transactionTypes: TransactionType[];
   transactions: Transaction[];
-  transactionsForDelete: Set<number>;
+  transactionsForDelete: number[]=[];
   displayedColumns: string[] = ['date', 'transactionType', 'amount', 'remarks'];
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
     this.getTransactionTypes();
     this.getTransactions();
-    this.transactionsForDelete = new Set<number>();
   }
 
   goHome(): void {
@@ -78,25 +79,26 @@ export class TransactComponent implements OnInit {
    );
   }
 
-  markTransactionForDeletion(event, markedTransaction: Transaction) {
-    console.log("Marked for delete: " + markedTransaction.id + " Status: " + event.checked);
-
-    if(event.checked) {
-      this.transactionsForDelete.add(markedTransaction.id);
-    }
-    else  {
-      this.transactionsForDelete.delete(markedTransaction.id);
-    }
-  }
-
   deleteSelected(): void  {
 
-    console.log("Delete Set: " + this.transactionsForDelete.size);
+    this.transactions.forEach((displayedTransaction) => {
+      console.log("Deletion Mark: " + displayedTransaction.id + " / " + displayedTransaction.text + " / " + displayedTransaction.markedForDelete);
+      if(displayedTransaction.markedForDelete)  {
+        this.transactionsForDelete.push(displayedTransaction.id);
+      }
+    });
 
-    this.http.post<Transaction>(environment.apiUrl + '/delete-transactions', this.transactionsForDelete, httpOptions).subscribe(
+    console.log(JSON.stringify(this.transactionsForDelete));
+
+    this.http.post<number[]>(environment.apiUrl + '/delete-transactions', this.transactionsForDelete, httpOptions).subscribe(
       data => {
+        console.log("Posted to Server");
+        this.transactionsForDelete = [];
+        this.toastr.success('Success!', 'Delete Transaction');
+        this.getTransactions();
       },
       error => {
+        this.toastr.error('Oops! Something went wrong :-(', 'Delete Transaction');
         console.log("Could not delete transactions, check if feeder is up.");
         this.messageService.add(`TransactionService: HTTP error while fetching transaction; check if feeder is up.`);
       }
