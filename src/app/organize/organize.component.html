@@ -1,45 +1,70 @@
 <div>
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
-<div class="container-fluid">
-  <div class="row no-gutters">
-    <div class="col mr-1 mt-2 ml-1">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">Categories</h3>
-          <p class="card-text">Add, modify or delete categories, maintain accounts and configurations.</p>
-          <button role="button" class="btn btn-success" (click)="viewCategories()">Manage Categories</button>
+<div class="organize-tiles-container">
+
+  <a (click)="viewCategories()">
+      <div class="card organize-tile">
+          <div class="card-header">Categories</div>
+          <div class="card-body" style="margin: 3px">
+            <div style="text-align:center; color: green"><h1 class="card-title">8</h1></div>
+            <p class="organize-tile-description">Create and maintain categories and accounts belonging to the respective categories.</p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col mr-1 mt-2 ml-1">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">Transaction Types</h3>
-          <p class="card-text">Manage your transaction types.</p>
-          <button role="button" class="btn btn-success" (click)="viewTransactionTypes()">Transaction Types</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row no-gutters">
-    <div class="col ml-1 mt-2 mr-1">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">Statement Profiles</h3>
-          <p class="card-text">Maintain the profiles to integrate import of account statements.</p>
-          <button role="button" class="btn btn-success" (click)="viewCategories()">Maintain Profiles</button>
-        </div>
-      </div>
-    </div>
-    <div class="col ml-1 mt-2 mr-1">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">Configuration</h3>
-          <p class="card-text">Maintain the general application configurations and rules.</p>
-          <button role="button" class="btn btn-success" (click)="viewCategories()">Configuration Settings</button>
-        </div>
-      </div>
+  </a>
+
+
+
+
+  <div class="card organize-tile">
+    <div class="card-header">Transaction Types</div>
+    <div class="card-body" style="margin: 3px">
+      <div style="text-align:center; color: indianred"><h1 class="card-title">15</h1></div>
+      <p class="organize-tile-description">Define and configure transaction types, based on the categories and accounts.</p>
     </div>
   </div>
+
+  <div class="card organize-tile">
+    <div class="card-header">Statement Profiles</div>
+    <div class="card-body" style="margin: 3px">
+      <h5 class="card-title">Manage Profiles</h5>
+      <p class="organize-tile-description">Configure metadata and rules to process transactions automatically by importing statements or with a direct connection.</p>
+    </div>
+  </div>
+  <div class="card organize-tile">
+    <div class="card-header">Configuration</div>
+    <div class="card-body" style="margin: 3px">
+      <h5 class="card-title">Application Configuration</h5>
+      <p class="organize-tile-description">Maintain general application settings like currencies, languages, country etc.</p>
+    </div>
+  </div>
+  <!--<div class="card organize-tile">
+    <div class="card-block">
+      <h3 class="card-title">Categories</h3>
+      <p class="card-text">Add, modify or delete categories, maintain accounts and configurations.</p>
+      <button role="button" class="btn btn-success" (click)="viewCategories()">Manage Categories</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h3 class="card-title">Transaction Types</h3>
+      <p class="card-text">Manage your transaction types.</p>
+      <button role="button" class="btn btn-success" (click)="viewTransactionTypes()">Transaction Types</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-block">
+      <h3 class="card-title">Statement Profiles</h3>
+      <p class="card-text">Maintain the profiles to integrate import of account statements.</p>
+      <button role="button" class="btn btn-success" (click)="viewCategories()">Maintain Profiles</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h3 class="card-title">Configuration</h3>
+      <p class="card-text">Maintain the general application configurations and rules.</p>
+      <button role="button" class="btn btn-success" (click)="viewCategories()">Configuration Settings</button>
+    </div>
+  </div>-->
 </div>
