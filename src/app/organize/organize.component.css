@@ -18,6 +18,7 @@
 
 .organize-tile:hover  {
   background-color: powderblue;
+  cursor: pointer;
 }
 
 .organize-tile-description  {
