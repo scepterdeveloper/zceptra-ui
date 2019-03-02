@@ -1,27 +1,27 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-    </div>
+<div class="categories">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
+          class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div class="row">
-    <div class="col">
-      <h6><b>Categories</b></h6>
-    </div>
-    <div class="col">
-      <button role="button" class="btn btn-success mb-1 float-right" (click)="addCategory()"><span><i class="fas fa-plus"></i></span> New</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div *ngIf="categories">
-        <div class="list-group">
-          <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}" class="list-group-item list-group-item-action">
-            {{category.name}}
-          </a>
+
+  <div *ngIf="categories" class="categories-pane">
+    <h6><b>Categories</b></h6>
+    <div class="list-group">
+      <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}"
+        class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{category.name}}</h5>
+          <!--<small>{{category.id}}</small>-->
+          <span class="badge badge-primary badge-pill">{{category.id}}</span>
         </div>
-      </div>
+        <small>{{category.description}}</small>
+      </a>
     </div>
+  </div>
+
+  <div class="categories-footer">
+    <button role="button" class="btn btn-success btn-sm" (click)="addCategory()">New Category</button>
   </div>
 </div>

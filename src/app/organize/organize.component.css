@@ -46,6 +46,11 @@
   }    
 }
 
+.tile-header  {
+  font-size: 0.80em;
+  font-weight: bold;
+}
+
 .organize-tile:hover  {
   background-color: powderblue;
   cursor: pointer;
