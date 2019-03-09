@@ -1,49 +1,32 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
+<div class="category-detail-container">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
+          class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
+  </div>
+  <div>
+    <h6><b>{{ category.name}} » Details</b></h6>
+  </div>
+  <div *ngIf="category" class="category-detail-pane">
+    <div>
+      <div class="font-weight-bold">Id</div>
+      {{ category.id}}
+    </div>
+    <br>
+    <div>
+      <div class="font-weight-bold">Name</div>
+      {{ category.name}}
+    </div>
+    <br>
+    <div>
+      <div class="font-weight-bold">Description</div>
+      {{ category.description}}
     </div>
   </div>
-  <div class="row">
-    <div class="col"><h6><b>{{ category.name}} » Details</b></h6></div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div *ngIf="category">
-        <div>
-            <div class="font-weight-bold">Id</div>
-        {{ category.id}}
-        </div>
-        <br>
-          <div>
-              <div class="font-weight-bold">Name</div>
-      		{{ category.name}}
-          </div>
-      	<br>
-          <div>
-      		<div class="font-weight-bold">Description</div>
-      		{{ category.description}}
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <hr>
-    </div>
-  </div>
-  <div class="row no-gutters">
-    <div class="col">
-      <button role="button" class="btn btn-success btn-block" (click)="viewAccounts()">View Accounts</button>
-    </div>
-    <div class="col ml-1">
-      <button role="button" class="btn btn-primary btn-block" (click)="editDetails()">Edit Details</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col mt-1">
-      <button role="button" class="btn btn-danger btn-block">Delete Category</button>
-    </div>
+  <div class="category-detail-footer">
+    <button role="button" class="btn btn-success btn-sm" (click)="viewAccounts()">View Accounts</button>
+    <button role="button" class="btn btn-primary btn-sm" (click)="editDetails()">Edit Details</button>
+    <button role="button" class="btn btn-danger btn-sm">Delete Category</button>
   </div>
 </div>
