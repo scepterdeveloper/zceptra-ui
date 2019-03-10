@@ -1,27 +1,27 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-    </div>
+<div class="transaction-types-container">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
+          class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div class="row">
-    <div class="col">
-      <h6><b>Transaction Types</b></h6>
-    </div>
-    <div class="col">
-      <button role="button" class="btn btn-success mb-1 float-right" (click)="addTransactionType()"><span><i class="fas fa-plus"></i></span> New</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div *ngIf="transactionTypes">
-        <div class="list-group">
-          <a *ngFor="let transactionType of transactionTypes" routerLink="/transaction-type-detail/{{transactionType.id}}" class="list-group-item list-group-item-action">
-            {{transactionType.name}}
-          </a>
+
+  <h6><b>Transaction Types</b></h6>
+
+  <div *ngIf="transactionTypes" class="transaction-types-pane">
+    <div class="list-group">
+      <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction-type/{{transactionType.id}}"
+        class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{transactionType.name}}</h5>
+          <!--<small>{{category.id}}</small>-->
         </div>
-      </div>
+        <small>{{transactionType.description}}</small>
+      </a>
     </div>
+  </div>
+
+  <div class="transaction-types-footer">
+    <button role="button" class="btn btn-success btn-sm" (click)="addTransactionType()">New Transaction Type</button>
   </div>
 </div>

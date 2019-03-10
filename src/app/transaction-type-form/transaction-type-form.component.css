@@ -3,3 +3,34 @@
   margin-bottom: 5px;
   border: none;
 }
+
+.normal-width {
+  width: 100%;
+}
+
+.accounting-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.accounting-section {
+  flex-grow: 1;
+}
+
+.transaction-type-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: inherit;
+  align-self: stretch;
+}
+
+.transaction-type-pane {
+  flex-grow: 1;
+}
+
+.transaction-type-footer {
+  background-color: silver;
+  padding: 3px;
+}

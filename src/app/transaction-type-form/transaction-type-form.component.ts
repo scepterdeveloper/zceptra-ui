@@ -79,6 +79,12 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.creditAccountOrganizingEntityType = "CATEGORY";
       this.showDebitCategoryList = true;
       this.showCreditCategoryList = true;
+
+      /**Hardcode these */
+      this.transactionType.dateLabel= "Date1";
+      this.transactionType.amountLabel = "Amount1";
+      this.transactionType.descriptionLabel="Remarks";
+
     }else {
       this.operation = "Edit Transaction Type » ";
       this.getTransactionType();
@@ -94,7 +100,7 @@ export class TransactionTypeFormComponent implements OnInit {
             console.log("Data from server: " + data.name);
             this.transactionType = data;
             console.log("Posted transaction type with id: " + this.transactionType.id);
-            this.router.navigateByUrl("transaction-type-detail/" + this.transactionType.id);
+            this.router.navigateByUrl("/transaction-types");
         },
         error => {
           console.log("Could not post transaction type, check if feeder is up.");
