@@ -28,7 +28,7 @@
             <mat-error *ngIf="debitAccountLabel.invalid">Field Label for Debit Account is required</mat-error>
           </mat-form-field>
 
-          <label class="font-weight-bold" for="name">Configure with</label><br>
+          <label class="font-weight-bold" for="name">Permitted Categories/Accounts</label><br>
 
           <div class="form-group">
             <mat-radio-group name="debitAccountOrganizingEntityType"
@@ -71,7 +71,7 @@
               [(ngModel)]="transactionType.creditAccountLabel">
             <mat-error *ngIf="creditAccountLabel.invalid">Field Label for Credit Account is required</mat-error>
           </mat-form-field>
-          <label class="font-weight-bold" for="name">Configure with</label><br>
+          <label class="font-weight-bold" for="name">Permitted Categories/Accounts</label><br>
 
           <div class="form-group">
             <mat-radio-group name="creditAccountOrganizingEntityType"
