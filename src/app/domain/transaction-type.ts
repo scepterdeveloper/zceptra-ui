@@ -16,4 +16,8 @@ export class TransactionType {
   creditableEntities: number[];
   debitableAccounts: Account[];
   creditableAccounts: Account[];
+  debitAccountFixed: Boolean;
+  debitAccountHidden: Boolean;
+  creditAccountFixed: Boolean;
+  creditAccountHidden: Boolean;  
 }

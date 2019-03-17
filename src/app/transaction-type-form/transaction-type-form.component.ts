@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import {FormControl} from '@angular/forms';
-import { MatRadioChange } from '@angular/material';
+import { MatRadioChange, MatCheckboxChange } from '@angular/material';
 import {Category} from '../domain/category';
 
 const httpOptions = {
@@ -56,6 +56,16 @@ export class TransactionTypeFormComponent implements OnInit {
    console.log("Value after losing focus  is",this.transactionType.debitableEntities);
  }
 
+ onDebitAccountFixedChange(event: MatCheckboxChange)  {
+   if(!this.transactionType.debitAccountFixed)  {
+     this.transactionType.debitAccountHidden = false;
+   }
+   else {
+     this.transactionType.debitAccountOrganizingEntityType="ACCOUNT";
+     this.setValuesForDebitAccountOrganizingEntitySetAsAccount();   
+   }
+ }
+
   goBack(): void {
     this.location.back();
   }
@@ -84,7 +94,6 @@ export class TransactionTypeFormComponent implements OnInit {
       this.transactionType.dateLabel= "Date1";
       this.transactionType.amountLabel = "Amount1";
       this.transactionType.descriptionLabel="Remarks";
-
     }else {
       this.operation = "Edit Transaction Type » ";
       this.getTransactionType();
@@ -154,6 +163,10 @@ export class TransactionTypeFormComponent implements OnInit {
 
   debitAccountOrganizingEntitySetAsAccount(event: MatRadioChange) {
     console.log("Debit Account: Account set as organizing entity");
+    this.setValuesForDebitAccountOrganizingEntitySetAsAccount();
+  }
+
+  setValuesForDebitAccountOrganizingEntitySetAsAccount(): void  {
     this.showDebitAccountList = true;
     this.showDebitCategoryList = false;
   }

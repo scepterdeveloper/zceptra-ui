@@ -22,6 +22,12 @@
       <div class="card bg-light accounting-section">
         <div class="card-header">Debit Account</div>
         <div class="card-body m-1">
+          <mat-checkbox name="debitAccountFixed" #debitAccountFixed="ngModel" (change)="onDebitAccountFixedChange($event)"
+          [(ngModel)]="transactionType.debitAccountFixed">Fixed Account</mat-checkbox>&nbsp;
+          <mat-checkbox name="debitAccountHidden" #debitAccountHidden="ngModel"
+          [(ngModel)]="transactionType.debitAccountHidden"
+          [disabled]="!transactionType.debitAccountFixed">Hide</mat-checkbox>
+
           <mat-form-field class="normal-width">
             <input matInput placeholder="Field Label" required name="debitAccountLabel" #debitAccountLabel="ngModel"
               [(ngModel)]="transactionType.debitAccountLabel">
@@ -33,7 +39,7 @@
           <div class="form-group">
             <mat-radio-group name="debitAccountOrganizingEntityType"
               [(ngModel)]="transactionType.debitAccountOrganizingEntityType">
-              <mat-radio-button value="CATEGORY" (change)="debitAccountOrganizingEntitySetAsCategory($event)">
+              <mat-radio-button [disabled]="transactionType.debitAccountFixed" value="CATEGORY" (change)="debitAccountOrganizingEntitySetAsCategory($event)">
                 Categories</mat-radio-button>
               <mat-radio-button class="ml-2" value="ACCOUNT"
                 (change)="debitAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
@@ -66,6 +72,8 @@
       <div class="card bg-light accounting-section">
         <div class="card-header">Credit Account</div>
         <div class="card-body m-1">
+          <mat-checkbox>Fixed Account</mat-checkbox>&nbsp;
+          <mat-checkbox>Hide</mat-checkbox>
           <mat-form-field class="normal-width">
             <input matInput placeholder="Field Label" required name="creditAccountLabel" #creditAccountLabel="ngModel"
               [(ngModel)]="transactionType.creditAccountLabel">

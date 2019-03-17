@@ -28,6 +28,7 @@
 
 .transaction-type-pane {
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 .transaction-type-footer {
