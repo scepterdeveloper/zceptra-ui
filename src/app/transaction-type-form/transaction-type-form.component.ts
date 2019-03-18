@@ -73,6 +73,23 @@ export class TransactionTypeFormComponent implements OnInit {
    }
  }
 
+ onCreditAccountFixedChange(event: MatCheckboxChange)  {
+  if(!this.transactionType.creditAccountFixed)  {
+    this.transactionType.creditAccountHidden = false;
+  }
+  else {
+    this.transactionType.creditAccountOrganizingEntityType="ACCOUNT";
+    this.setValuesForCreditAccountOrganizingEntitySetAsAccount();   
+  }
+}
+
+onCreditAccountHiddenChange(event: MatCheckboxChange) {
+  var creditAccountFieldLabel = this.transactionType.creditAccountLabel;
+  if(this.transactionType.creditAccountHidden && (creditAccountFieldLabel == null || !(creditAccountFieldLabel.trim().length>0)) )  {
+    this.transactionType.creditAccountLabel="NA";
+  }
+}
+
   goBack(): void {
     this.location.back();
   }
@@ -98,8 +115,8 @@ export class TransactionTypeFormComponent implements OnInit {
       this.showCreditCategoryList = true;
 
       /**Hardcode these */
-      this.transactionType.dateLabel= "Date1";
-      this.transactionType.amountLabel = "Amount1";
+      this.transactionType.dateLabel= "Date";
+      this.transactionType.amountLabel = "Amount";
       this.transactionType.descriptionLabel="Remarks";
     }else {
       this.operation = "Edit Transaction Type » ";
@@ -189,4 +206,9 @@ export class TransactionTypeFormComponent implements OnInit {
     this.showCreditAccountList = true;
     this.showCreditCategoryList = false;
   }
+
+  setValuesForCreditAccountOrganizingEntitySetAsAccount(): void  {
+    this.showCreditAccountList = true;
+    this.showCreditCategoryList = false;
+  }  
 }

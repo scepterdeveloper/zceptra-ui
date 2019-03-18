@@ -34,10 +34,10 @@
           <mat-error *ngIf="amount.invalid">Amount is required</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="normal-width">
+        <mat-form-field class="normal-width" [hidden]="transactionType.creditAccountHidden">
           <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount"
             [(ngModel)]="transaction.participatingAccount" [compareWith]="compareAccounts"
-            #participatingAccount="ngModel">
+            #participatingAccount="ngModel" [disabled]="transactionType.creditAccountFixed">
             <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts"
               [value]="creditableAccount">
               {{creditableAccount.name}}
