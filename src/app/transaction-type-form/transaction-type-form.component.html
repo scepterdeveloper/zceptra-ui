@@ -25,7 +25,7 @@
           <mat-checkbox name="debitAccountFixed" #debitAccountFixed="ngModel" (change)="onDebitAccountFixedChange($event)"
           [(ngModel)]="transactionType.debitAccountFixed">Fixed Account</mat-checkbox>&nbsp;
           <mat-checkbox name="debitAccountHidden" #debitAccountHidden="ngModel"
-          [(ngModel)]="transactionType.debitAccountHidden"
+          [(ngModel)]="transactionType.debitAccountHidden" (change)="onDebitAccountHiddenChange($event)"
           [disabled]="!transactionType.debitAccountFixed">Hide</mat-checkbox>
 
           <mat-form-field class="normal-width">

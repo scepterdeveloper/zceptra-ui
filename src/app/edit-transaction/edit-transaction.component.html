@@ -1,7 +1,9 @@
 <div class="edit-transaction">
   <div>
-    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
+          class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
   </div>
 
   <form (ngSubmit)="onSubmit()" #transactionForm="ngForm" class="edit-transaction-pane">
@@ -9,48 +11,43 @@
       <div *ngIf="transactionType">
         <h6><b>{{operation}} {{transactionType.name}}</b></h6>
         <mat-form-field class="normal-width">
-          <input matInput [matDatepicker]="picker" required placeholder="{{transactionType.dateLabel}}" [(ngModel)]="transaction.date"
-            name="date" #date="ngModel">
+          <input matInput [matDatepicker]="picker" required placeholder="{{transactionType.dateLabel}}"
+            [(ngModel)]="transaction.date" name="date" #date="ngModel">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <br>
+          <mat-form-field class="normal-width" [hidden]="transactionType.debitAccountHidden">
+            <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount"
+              [(ngModel)]="transaction.account" [compareWith]="compareAccounts" #debitAccount="ngModel"
+              [disabled]="transactionType.debitAccountFixed">
+              <mat-option *ngFor="let debitableAccount of transactionType.debitableAccounts" [value]="debitableAccount">
+                {{debitableAccount.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
         <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.debitAccountLabel}}" name="debitAccount" [(ngModel)]="transaction.account"
-            [compareWith]="compareAccounts" #debitAccount="ngModel">
-            <mat-option *ngFor="let debitableAccount of transactionType.debitableAccounts" [value]="debitableAccount">
-              {{debitableAccount.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <br>
-
-        <mat-form-field class="normal-width">
-          <input matInput type="number" placeholder="{{transactionType.amountLabel}}" required name="amount" #amount="ngModel"
-            [(ngModel)]="transaction.amount">
+          <input matInput type="number" placeholder="{{transactionType.amountLabel}}" required name="amount"
+            #amount="ngModel" [(ngModel)]="transaction.amount"/>
           <span matPrefix>$&nbsp;</span>
           <mat-error *ngIf="amount.invalid">Amount is required</mat-error>
         </mat-form-field>
 
-        <br>
-
         <mat-form-field class="normal-width">
-          <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount" [(ngModel)]="transaction.participatingAccount"
-            [compareWith]="compareAccounts" #participatingAccount="ngModel">
-            <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts" [value]="creditableAccount">
+          <mat-select placeholder="{{transactionType.creditAccountLabel}}" name="participatingAccount"
+            [(ngModel)]="transaction.participatingAccount" [compareWith]="compareAccounts"
+            #participatingAccount="ngModel">
+            <mat-option *ngFor="let creditableAccount of transactionType.creditableAccounts"
+              [value]="creditableAccount">
               {{creditableAccount.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
-        <br>
-
         <mat-form-field class="normal-width">
-          <textarea matInput placeholder="{{transactionType.descriptionLabel}}" required name="text" [(ngModel)]="transaction.text"
-            #text="ngModel"></textarea>
+          <input matInput placeholder="{{transactionType.descriptionLabel}}" required name="text"
+            [(ngModel)]="transaction.text" #text="ngModel"/>
           <mat-error *ngIf="text.invalid">Remarks is required</mat-error>
         </mat-form-field>
       </div>
@@ -59,6 +56,7 @@
 
   <div class="edit-transaction-footer">
     <button role="button" class="btn btn-success btn-sm" (click)="goBack()">Cancel</button>
-    <button role="button" class="ml-1 btn btn-danger btn-sm" (click)="saveTransaction()" [disabled]="!transactionForm.form.valid">Submit</button>
+    <button role="button" class="ml-1 btn btn-danger btn-sm" (click)="saveTransaction()"
+      [disabled]="!transactionForm.form.valid">Submit</button>
   </div>
 </div>

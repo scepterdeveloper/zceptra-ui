@@ -66,6 +66,13 @@ export class TransactionTypeFormComponent implements OnInit {
    }
  }
 
+ onDebitAccountHiddenChange(event: MatCheckboxChange) {
+   var debitAccountFieldLabel = this.transactionType.debitAccountLabel;
+   if(this.transactionType.debitAccountHidden && (debitAccountFieldLabel == null || !(debitAccountFieldLabel.trim().length>0)) )  {
+     this.transactionType.debitAccountLabel="NA";
+   }
+ }
+
   goBack(): void {
     this.location.back();
   }
