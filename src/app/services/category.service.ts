@@ -22,7 +22,7 @@ export class CategoryService {
         let index = 0;
 
         for (let category of data) {
-          categories[index++] = {id: category.id, name: category.name, description: category.description};
+          categories[index++] = {id: category.id, name: category.name, description: category.description, interval: category.interval};
         }
     },
     error => {

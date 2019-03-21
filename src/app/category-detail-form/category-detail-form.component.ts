@@ -61,6 +61,7 @@ export class CategoryDetailFormComponent implements OnInit {
       this.category.id = null;
       this.category.name = "";
       this.category.description = "";
+      this.category.interval = "MONTHLY";
 
     }else {
       this.operation = "Edit Category » ";
