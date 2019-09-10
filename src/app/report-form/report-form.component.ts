@@ -51,6 +51,10 @@ export class ReportFormComponent implements OnInit {
     }
   }
 
+  onSubmit() {
+    //this.submitted = true;
+  }  
+
   getReport(): void {
 
     const id = +this.route.snapshot.paramMap.get('id');
