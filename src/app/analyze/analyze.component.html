@@ -1,0 +1,25 @@
+<div class="analyze">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
+  </div>
+
+  <div *ngIf="reports" class="analyze-pane">
+    <h6><b>Reports</b></h6>
+    <div class="list-group">
+      <a *ngFor="let report of reports" routerLink="/edit-report/{{report.id}}"
+        class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{report.name}}</h5>
+          <!--<small>{{category.id}}</small>-->
+          <span class="badge badge-primary badge-pill">{{report.id}}</span>
+        </div>
+        <small>{{report.description}}</small>
+      </a>
+    </div>
+  </div>
+
+  <div class="analyze-footer">
+    <button role="button" class="btn btn-success btn-sm" (click)="editReport()">New Report</button>
+  </div>
+</div>

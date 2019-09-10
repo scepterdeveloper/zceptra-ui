@@ -1,0 +1,25 @@
+.navbutton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+
+.analyze {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: inherit;
+  align-self: stretch;
+}
+
+.analyze-pane {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.analyze-footer {
+  background-color: silver;
+  padding: 3px;
+}

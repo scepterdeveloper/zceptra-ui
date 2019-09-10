@@ -6,6 +6,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TransactionTypesComponent } from './transaction-types/transaction-types.component';
 import { OrganizeComponent } from './organize/organize.component';
 import { TransactComponent } from './transact/transact.component';
+import { AnalyzeComponent } from './analyze/analyze.component';
 import { CategoryDetailFormComponent } from './category-detail-form/category-detail-form.component';
 import { AccountDetailFormComponent } from './account-detail-form/account-detail-form.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
@@ -14,11 +15,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
+import { ReportFormComponent } from './report-form/report-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'organize', component: OrganizeComponent },
   { path: 'transact', component: TransactComponent },
+  { path: 'analyze', component: AnalyzeComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent },
   { path: 'transaction-types', component: TransactionTypesComponent },
@@ -26,6 +29,7 @@ const routes: Routes = [
   { path: 'transaction-type-detail/:id', component: TransactionTypeDetailComponent },
   { path: 'account-detail/:id', component: AccountDetailComponent },
   { path: 'accounts/:category-id/:category-name', component: AccountsComponent },
+  { path: 'edit-report/:id', component: ReportFormComponent },
   { path: 'edit-category/:id', component: CategoryDetailFormComponent },
   { path: 'edit-account/:categoryId/:id', component: AccountDetailFormComponent },
   { path: 'edit-transaction-type/:id', component: TransactionTypeFormComponent },

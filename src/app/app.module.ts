@@ -25,6 +25,8 @@ import { TransactionTypesComponent } from './transaction-types/transaction-types
 import { TransactionTypeDetailComponent } from './transaction-type-detail/transaction-type-detail.component';
 import { TransactionTypeFormComponent } from './transaction-type-form/transaction-type-form.component';
 import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
+import { AnalyzeComponent } from './analyze/analyze.component';
+import { ReportFormComponent } from './report-form/report-form.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,14 @@ import { EditTransactionComponent } from './edit-transaction/edit-transaction.co
     CategoryDetailFormComponent,
     OrganizeComponent,
     TransactComponent,
+    AnalyzeComponent,
     AccountDetailFormComponent,
     AccountDetailComponent,
     TransactionTypesComponent,
     TransactionTypeDetailComponent,
     TransactionTypeFormComponent,
-    EditTransactionComponent
+    EditTransactionComponent,
+    ReportFormComponent
   ],
   imports: [
     BrowserModule,
