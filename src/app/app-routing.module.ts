@@ -18,6 +18,7 @@ import { EditTransactionComponent } from './edit-transaction/edit-transaction.co
 import { ReportFormComponent } from './report-form/report-form.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 
+
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'organize', component: OrganizeComponent },
