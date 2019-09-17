@@ -5,17 +5,22 @@
   </div>
 
   <div *ngIf="reports" class="analyze-pane">
-    <h6><b>Reports</b></h6>
-    <div class="list-group">
-      <a *ngFor="let report of reports" routerLink="/edit-report/{{report.id}}"
-        class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{report.name}}</h5>
-          <!--<small>{{category.id}}</small>-->
-          <span class="badge badge-primary badge-pill">{{report.id}}</span>
+    <div class="caption">
+      <h6><b>Reports</b></h6>
+    </div>
+    <div class="cards">
+      <div class="report-card" style="width: 18rem;" *ngFor="let report of reports">
+        <div class="card-caption">{{report.name}}</div>
+        <div class="card-content">
+          <p >{{report.description}}</p>
         </div>
-        <small>{{report.description}}</small>
-      </a>
+        <div class="card-buttons">
+          <div>
+            <a href="/view-report/{{report.id}}" class="btn btn-secondary btn-sm">Execute</a>
+            <a href="/edit-report/{{report.id}}" class="btn btn-secondary btn-sm ml-1">Configure</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

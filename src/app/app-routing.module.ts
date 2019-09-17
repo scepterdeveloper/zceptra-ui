@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
 import { ReportFormComponent } from './report-form/report-form.component';
+import { ReportViewComponent } from './report-view/report-view.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'account-detail/:id', component: AccountDetailComponent },
   { path: 'accounts/:category-id/:category-name', component: AccountsComponent },
   { path: 'edit-report/:id', component: ReportFormComponent },
+  { path: 'view-report/:id', component: ReportViewComponent },
   { path: 'edit-category/:id', component: CategoryDetailFormComponent },
   { path: 'edit-account/:categoryId/:id', component: AccountDetailFormComponent },
   { path: 'edit-transaction-type/:id', component: TransactionTypeFormComponent },

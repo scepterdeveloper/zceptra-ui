@@ -27,6 +27,7 @@ import { TransactionTypeFormComponent } from './transaction-type-form/transactio
 import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
 import { AnalyzeComponent } from './analyze/analyze.component';
 import { ReportFormComponent } from './report-form/report-form.component';
+import { ReportViewComponent } from './report-view/report-view.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ReportFormComponent } from './report-form/report-form.component';
     TransactionTypeDetailComponent,
     TransactionTypeFormComponent,
     EditTransactionComponent,
-    ReportFormComponent
+    ReportFormComponent,
+    ReportViewComponent
   ],
   imports: [
     BrowserModule,
