@@ -1,3 +1,24 @@
-table {
-    width: 100%;
-  }
+.navbutton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+
+.report-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.report-view-pane {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  background-color: silver;
+  padding: 3px;
+}
+

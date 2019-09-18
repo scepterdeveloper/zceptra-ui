@@ -50,6 +50,18 @@ export class ReportViewComponent implements OnInit {
     
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
+  goHome(): void {
+    this.router.navigateByUrl("/dashboard");
+  }
+
+  exportPDF(): void {
+    console.log("PDF Export - Not Implemented");
+  }  
+
   getReportData(): void {
 
     const id = +this.route.snapshot.paramMap.get('id');
