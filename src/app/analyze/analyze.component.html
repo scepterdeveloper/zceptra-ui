@@ -16,8 +16,8 @@
         </div>
         <div class="card-buttons">
           <div>
-            <a href="/view-report/{{report.id}}" class="btn btn-secondary btn-sm">Execute</a>
-            <a href="/edit-report/{{report.id}}" class="btn btn-secondary btn-sm ml-1">Configure</a>
+            <a routerLink="/view-report/{{report.id}}" class="btn btn-secondary btn-sm">Execute</a>
+            <a routerLink="/edit-report/{{report.id}}" class="btn btn-secondary btn-sm ml-1">Configure</a>
           </div>
         </div>
       </div>
@@ -25,6 +25,6 @@
   </div>
 
   <div class="analyze-footer">
-    <button role="button" class="btn btn-success btn-sm" (click)="editReport()">New Report</button>
+    <button role="button" class="btn btn-success btn-sm" (click)="createReport()">New Report</button>
   </div>
 </div>
