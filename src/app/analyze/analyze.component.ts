@@ -42,11 +42,7 @@ export class AnalyzeComponent implements OnInit {
   }
 
   createReport(): void {
-    this.router.navigateByUrl("/edit-report/17");
-  }
-
-  editReport(): void {
-    this.router.navigateByUrl("/edit-report/17");
+    this.router.navigateByUrl("/edit-report/-1");
   }
 
   getReports(): void {
