@@ -41,14 +41,16 @@
   }  
 }
 
-.report-card {
-  margin: 1px;
-  padding: 4px;
-  display: flex;
-  width: 18rem;
-  background-color: black;
-  color: white;
-  flex-direction: column;
+@media all and (min-width: 750px) {
+  .report-card {
+    margin: 1px;
+    padding: 4px;
+    display: flex;
+    width: 18rem;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+  }  
 }
 
 .analyze-footer {
