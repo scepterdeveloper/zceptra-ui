@@ -56,12 +56,13 @@
 
 .analyze-footer {
   padding: 3px;
+  background-color: rgb(253, 227, 167);
   border-style: solid;
   border-color: lightgray;
   border-top-width: 1px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-bottom-width: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
 }
 
 /*Classes for Card*/
@@ -72,7 +73,7 @@
 .card-content {
   font-size: 0.70em;
   flex-grow: 1;
-  color: #4EB1BA;
+  color: rgb(249, 180, 45);
 }
 
 .card-buttons {
@@ -102,7 +103,7 @@
 }
 
 .btn-circle:hover {
-  background-color: wheat;
+  background-color: rgb(249, 180, 45);
 }
 
 .card-button {
