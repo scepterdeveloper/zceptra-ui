@@ -18,8 +18,8 @@
 }
 
 .caption {
-  background-color: silver;
-  color: black;
+  /*background-color: #222930;*/
+  /*color: white;*/
 }
 
 .cards {
@@ -35,7 +35,7 @@
     padding: 4px;
     display: flex;
     width: 100%;
-    background-color: black;
+    background-color: rgb(24, 24, 37);
     color: white;
     flex-direction: column;
   }  
@@ -47,32 +47,72 @@
     padding: 4px;
     display: flex;
     width: 18rem;
-    background-color: black;
+    /*background-color: rgb(24, 24, 37);*/
+    background-color: #222930;
     color: white;
     flex-direction: column;
   }  
 }
 
 .analyze-footer {
-  background-color: silver;
+  /*background-color: #222930;*/
   padding: 3px;
 }
 
 /*Classes for Card*/
 .card-caption {
-
-
+  color: #E9E9E9;
 }
 
 .card-content {
   font-size: 0.70em;
   flex-grow: 1;
-  color: darkseagreen;
-
-
+  color: #4EB1BA;
 }
 
 .card-buttons {
 
 
 }
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  border-width: 3px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  border-color: darkgray;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-circle:hover {
+  background-color: wheat;
+}
+
+.card-button {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  /*border-color: white;*/
+  background-color: darkgrey;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.card-button:hover {
+  background-color: wheat;
+}
+

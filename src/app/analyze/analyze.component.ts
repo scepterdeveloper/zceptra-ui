@@ -45,6 +45,14 @@ export class AnalyzeComponent implements OnInit {
     this.router.navigateByUrl("/edit-report/-1");
   }
 
+  executeReport(report: Report): void {
+    this.router.navigateByUrl("/view-report/" + report.id);
+  }
+
+  configureReport(report: Report): void {
+    this.router.navigateByUrl("/edit-report/" + report.id);
+  }
+
   getReports(): void {
     console.log("Getting reports from " + environment.apiUrl + '/get-all-reports');
     this.http.get<Report[]>(environment.apiUrl + '/get-all-reports').subscribe(

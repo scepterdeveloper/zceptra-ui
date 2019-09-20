@@ -16,8 +16,11 @@
         </div>
         <div class="card-buttons">
           <div>
-            <a routerLink="/view-report/{{report.id}}" class="btn btn-secondary btn-sm">Execute</a>
-            <a routerLink="/edit-report/{{report.id}}" class="btn btn-secondary btn-sm ml-1">Configure</a>
+            <!--<a routerLink="/view-report/{{report.id}}" class="btn btn-default btn-circle"><i class="fa fa-play"></i></a>
+            <a routerLink="/edit-report/{{report.id}}" class="btn btn-default btn-circle ml-1"><i class="fa fa-gear"></i></a>-->
+
+            <button role="button" class="btn btn-default card-button" (click)="executeReport(report)"><i class="fa fa-play"></i></button>
+            <button role="button" class="btn btn-default card-button ml-1" (click)="configureReport(report)"><i class="fa fa-cog"></i></button>
           </div>
         </div>
       </div>
@@ -25,6 +28,6 @@
   </div>
 
   <div class="analyze-footer">
-    <button role="button" class="btn btn-success btn-sm" (click)="createReport()">New Report</button>
+    <button role="button" class="btn btn-default btn-circle" (click)="createReport()"><i class="fa fa-plus"></i></button>
   </div>
 </div>
