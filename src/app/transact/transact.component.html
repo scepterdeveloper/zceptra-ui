@@ -3,7 +3,7 @@
     <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
           class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div style="background-color:lightgray">
+  <div>
     <div class="caption">Record Transaction</div>
   </div>
   <div class="transact-pane">
@@ -18,7 +18,8 @@
 
     </div>
   </div>
-  <div style="background-color:lightgray">
+  
+  <div>
     <div class="caption">Transactions</div>
   </div>
   <div class="list-transactions-pane table-responsive-sm transactions-list-text">
@@ -46,7 +47,7 @@
   </div>
 
   <div class="transact-footer">
-    <button role="button" class="btn btn-success btn-sm">Clear Selection</button>
-    <button role="button" (click)="deleteSelected()" class="ml-1 btn btn-danger btn-sm">Delete Selected</button>
+    <button role="button" class="btn btn-default btn-circle"><i class="fa fa-eraser fa-lg"></i></button>
+    <button role="button" (click)="deleteSelected()" class="ml-1 btn btn-default btn-circle"><i class="fa fa-trash"></i></button>
   </div>
 </div>

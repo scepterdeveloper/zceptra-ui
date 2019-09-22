@@ -17,11 +17,11 @@ a {
 }
 
 a:hover {
-  background-color: red;
+  background-color: rgb(255, 249, 222);
 }
 
 .transact-type-box:hover  {
-  background-color: orangered;
+  background-color: rgb(108, 122, 137);
 }
 
 .list-transactions-pane {
@@ -52,9 +52,31 @@ a:hover {
 }
 
 .transact-footer {
-  background-color: silver;
   padding: 3px;
+  background-color: rgb(253, 227, 167);
+  border-style: solid;
+  border-color: lightgray;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
 }
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  border-color: darkgray;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-circle:hover {
+  background-color: rgb(249, 180, 45);
+}
+
 
 @media all and (max-width: 750px) {
 
@@ -70,14 +92,14 @@ a:hover {
       margin: 1px;
       padding: 2px;
       text-align: center;
-      background-color: rgb(13, 63, 65);
+      background-color: rgb(52, 73, 94);
+      color: #E9E9E9;
       font-size: 0.65em;
-      color: aliceblue;
     }
     
     .transact-type-box-decription {
-      font-size: 0.6em;
-      color:paleturquoise
+      font-size: 0.7em;
+      color: rgb(249, 180, 45);
     }
 
     .transact-type-box-decription {
@@ -90,9 +112,7 @@ a:hover {
     
     .caption {
       padding: 2px;
-      font-size: 0.8em;
-      color: white;
-      background-color: darkgray;
+      font-weight: bold;
     }  
   }
   @media all and (min-width: 750px) {
@@ -109,13 +129,13 @@ a:hover {
       margin: 1px;
       padding: 2px;
       text-align: center;
-      background-color: rgb(13, 63, 65);
-      color: aliceblue;
+      background-color: rgb(52, 73, 94);
+      color: #E9E9E9;
     }
     
     .transact-type-box-decription {
-      font-size: 0.8em;
-      color:paleturquoise
+      font-size: 0.7em;
+      color: rgb(249, 180, 45);
     }
     
     .transactions-list-text {
@@ -125,9 +145,7 @@ a:hover {
     
     .caption {
       padding: 2px;
-      /*font-size: 0.8em;*/
-      color: white;
-      background-color: darkgray;
+      font-weight: bold;
     }  
   }
 
