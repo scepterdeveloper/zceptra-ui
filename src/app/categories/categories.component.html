@@ -8,20 +8,25 @@
 
   <div *ngIf="categories" class="categories-pane">
     <h6><b>Categories</b></h6>
-    <div class="list-group">
-      <a *ngFor="let category of categories" routerLink="/category-detail/{{category.id}}"
-        class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{category.name}}</h5>
-          <!--<small>{{category.id}}</small>-->
-          <span class="badge badge-primary badge-pill">{{category.id}}</span>
+
+    <div class="multi-action-cards">
+      <div class="multi-action-card" *ngFor="let category of categories">
+        <div class="multi-action-card-caption">{{category.name}}</div>
+        <div class="multi-action-card-content">
+          <p>{{category.description}}</p>
         </div>
-        <small>{{category.description}}</small>
-      </a>
+        <div class="multi-action-card-buttons">
+          <div>
+            <button role="button" class="btn btn-default multi-action-card-button-circle" (click)="editCategory(category)"><i class="fa fa-edit fa-lg"></i></button>
+            <button role="button" class="btn btn-default multi-action-card-button-circle ml-1" (click)="deleteCategory(category)"><i class="fa fa-trash fa-lg"></i></button>
+            <button role="button" class="btn btn-default multi-action-card-button-rectangle ml-1" (click)="showAccounts(category)">Show Accounts</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="categories-footer">
-    <button role="button" class="btn btn-success btn-sm" (click)="addCategory()">New Category</button>
+    <button role="button" class="btn btn-default btn-circle" (click)="addCategory()"><i class="fa fa-plus"></i></button>
   </div>
 </div>

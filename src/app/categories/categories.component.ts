@@ -39,6 +39,19 @@ export class CategoriesComponent implements OnInit {
     this.router.navigateByUrl("/edit-category/-1");
   }
 
+  editCategory(editedCategory: Category): void {
+    this.router.navigateByUrl("/edit-category/" + editedCategory.id);
+  }  
+
+  deleteCategory(seletedCategory: Category): void {
+
+    console.log("Not Implemented.");
+  }
+
+  showAccounts(seletedCategory: Category): void {
+    this.router.navigateByUrl("/accounts/" + seletedCategory.id + "/" + seletedCategory.name);
+  }
+
   getCategories(): void {
     console.log("Getting Categories from " + environment.apiUrl + '/get-all-categories');
     this.http.get<Category[]>(environment.apiUrl + '/get-all-categories').subscribe(

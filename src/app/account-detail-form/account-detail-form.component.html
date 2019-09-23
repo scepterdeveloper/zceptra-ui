@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
   <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
 </div>
@@ -21,4 +21,37 @@
       <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>
       <button role="button" class="btn btn-danger" (click)="saveAccount()" [disabled]="!accountDetailForm.form.valid">Submit</button>
     </form>
+</div>-->
+
+<div class="main-container">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
+          class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i
+          class="fas fa-home fa-lg"></i></span></button>
+  </div>
+
+  <h6><b>{{operation}} {{account.name}}</b></h6>
+
+  <form (ngSubmit)="onSubmit()" #accountDetailForm="ngForm" class="content-pane">
+
+    <mat-form-field class="normal-width">
+      <input matInput placeholder="Name" required name="name"
+        [(ngModel)]="account.name" #name="ngModel"/>
+      <mat-error *ngIf="name.invalid">Name is required</mat-error>
+    </mat-form-field>  
+    
+    <mat-form-field class="normal-width">
+      <input matInput placeholder="Description" required name="description"
+        [(ngModel)]="account.description" #description="ngModel"/>
+      <mat-error *ngIf="description.invalid">Description is required</mat-error>
+    </mat-form-field>  
+  </form>
+  
+  <div class="container-footer">
+    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i
+        class="fa fa-undo fa-lg"></i></button>
+    <button role="button" class="btn btn-default btn-circle" (click)="saveAccount()"
+      [disabled]="!accountDetailForm.form.valid"><i class="fa fa-save fa-lg"></i></button>
+  </div>
 </div>

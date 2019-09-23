@@ -35,3 +35,47 @@
   background-color: silver;
   padding: 3px;
 }
+
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content-pane {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.container-footer {
+  padding: 3px;
+  background-color: rgb(253, 227, 167);
+  border-style: solid;
+  border-color: lightgray;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  border-color: darkgray;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-circle:hover {
+  background-color: rgb(249, 180, 45);
+}
+
+
+

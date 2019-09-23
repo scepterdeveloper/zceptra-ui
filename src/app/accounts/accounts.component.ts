@@ -38,7 +38,7 @@ export class AccountsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigateByUrl("/category-detail/" + this.categoryId);
+    this.router.navigateByUrl("/categories");
   }
 
   goHome(): void {

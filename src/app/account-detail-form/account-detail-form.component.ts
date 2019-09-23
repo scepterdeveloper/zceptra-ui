@@ -74,7 +74,7 @@ export class AccountDetailFormComponent implements OnInit {
             console.log("Data from server: " + data.name);
             this.account = data;
             console.log("Posted account with id: " + this.account.id);
-            this.router.navigateByUrl("account-detail/" + this.account.id);
+            this.router.navigateByUrl("accounts/" + this.category.id + "/" + this.category.name);
         },
         error => {
           console.log("Could not post account, check if feeder is up.");

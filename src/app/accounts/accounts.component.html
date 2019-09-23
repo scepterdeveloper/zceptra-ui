@@ -1,27 +1,18 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-      <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-    </div>
+<div class="main-container">
+  <div>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
+    <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
   </div>
-  <div class="row">
-    <div class="col-6">
-      <h6><b>{{categoryName}} » Accounts</b></h6>
+  <h6><b>{{categoryName}} » Accounts</b></h6>
+  <div *ngIf="accounts" class="content-pane">
+    <div class="list-group">
+      <a *ngFor="let account of accounts" routerLink="/edit-account/{{categoryId}}/{{account.id}}" class="list-group-item list-group-item-action">
+        {{account.name}}
+      </a>
     </div>
-    <div class="col">
-      <button role="button" class="btn btn-success mb-1 float-right" (click)="addAccount()"><span><i class="fas fa-plus"></i></span> New</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div *ngIf="accounts">
-        <div class="list-group">
-          <a *ngFor="let account of accounts" routerLink="/account-detail/{{account.id}}" class="list-group-item list-group-item-action">
-            {{account.name}}
-          </a>
-        </div>
-      </div>
-    </div>
+  </div>  
+
+  <div class="container-footer">
+    <button role="button" class="btn btn-default btn-circle" (click)="addAccount()"><i class="fa fa-plus"></i></button>
   </div>
 </div>
