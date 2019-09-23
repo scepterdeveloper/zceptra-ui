@@ -12,16 +12,30 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
+  .organize-tile-body  {
+    background-color: rgb(52, 73, 94);
+  }    
+
+  .organize-tile-kpi  {
+    font-size: 3rem;
+  }  
   .organize-tile  {
     width: 48vw;
     height: 48vw;
     margin: 1px;
-  } 
+    background-color: rgb(52, 73, 94);
+    color: white;
+    cursor: pointer;
+  }   
+
+  .organize-tile-caption {
+    
+  }
 
   .organize-tile-description  {
     font-size: 0.7em;
-    color: dimgrey;
+    color: rgb(249, 180, 45);;
   }    
 }
 
@@ -33,16 +47,32 @@
     flex-wrap: wrap;
     justify-content: left;
   }
+
+  .organize-tile-body  {
+    background-color: rgb(52, 73, 94);
+  }    
+
+  .organize-tile-kpi  {
+    font-size: 3rem;
+  }    
   
   .organize-tile  {
-    width: 15rem;
-    height: 15rem;
+    width: 13vw;
+    height: 13vw;
     margin: 1px;
+    padding: 4px;
+    background-color: rgb(52, 73, 94);
+    color: white;
+    cursor: pointer;
+  }   
+
+  .organize-tile-caption {
+    
   }  
 
   .organize-tile-description  {
-    font-size: 0.85em;
-    color: dimgrey;
+    font-size: 0.70em;
+    color: rgb(249, 180, 45);;
   }    
 }
 
@@ -52,7 +82,7 @@
 }
 
 .organize-tile:hover  {
-  background-color: powderblue;
+  background-color: rgb(108, 122, 137);
   cursor: pointer;
 }
 
