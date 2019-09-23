@@ -56,8 +56,8 @@
 
   </form>
   <div class="report-form-footer">
-    <button role="button" class="btn btn-success btn-sm" (click)="goBack()">Cancel</button>
-    <button role="button" class="btn btn-danger btn-sm ml-1" (click)="saveReport()"
-      [disabled]="!reportForm.form.valid">Submit</button>
+    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i class="fa fa-undo fa-lg"></i></button>
+    <button role="button" class="btn btn-default btn-circle ml-1" (click)="saveReport()"
+      [disabled]="!reportForm.form.valid"><i class="fas fa-save fa-lg"></i></button>
   </div>
 </div>

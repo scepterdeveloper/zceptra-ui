@@ -55,8 +55,8 @@
   </form>
 
   <div class="edit-transaction-footer">
-    <button role="button" class="btn btn-success btn-sm" (click)="goBack()">Cancel</button>
-    <button role="button" class="ml-1 btn btn-danger btn-sm" (click)="saveTransaction()"
-      [disabled]="!transactionForm.form.valid">Submit</button>
+    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i class="fa fa-undo fa-lg"></i></button>
+    <button role="button" class="ml-1 btn btn-default btn-circle" (click)="saveTransaction()"
+      [disabled]="!transactionForm.form.valid"><i class="fas fa-save fa-lg"></i></button>
   </div>
 </div>
