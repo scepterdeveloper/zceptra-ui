@@ -24,6 +24,7 @@
     width: 48vw;
     height: 48vw;
     margin: 1px;
+    padding: 4px;
     background-color: rgb(52, 73, 94);
     color: white;
     cursor: pointer;
@@ -46,6 +47,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
+    padding: 1px;
   }
 
   .organize-tile-body  {

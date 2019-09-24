@@ -1,28 +1,3 @@
-<!--<div>
-  <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i class="fas fa-arrow-left fa-lg"></i></span></button>
-  <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goHome()"><span><i class="fas fa-home fa-lg"></i></span></button>
-</div>
-
-<div *ngIf="account">
-    <h6><b>{{operation}} {{account.name}}</b></h6>
-    <form (ngSubmit)="onSubmit()" #accountDetailForm="ngForm">
-      <div class="form-group">
-        <label class="font-weight-bold" for="name">Name</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="account.name" name="name" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div>
-      </div>
-
-      <div class="form-group">
-        <label class="font-weight-bold" for="description">Description</label>
-        <input type="text" class="form-control" id="description" required [(ngModel)]="account.description" name="description" #description="ngModel">
-        <div [hidden]="description.valid || description.pristine" class="alert alert-danger">Description is required</div>
-      </div>
-
-      <button role="button" class="btn btn-success" (click)="goBack()">Cancel</button>
-      <button role="button" class="btn btn-danger" (click)="saveAccount()" [disabled]="!accountDetailForm.form.valid">Submit</button>
-    </form>
-</div>-->
-
 <div class="main-container">
   <div>
     <button role="button" class="btn btn-secondary btn-sm navbutton" (click)="goBack()"><span><i
@@ -31,10 +6,8 @@
           class="fas fa-home fa-lg"></i></span></button>
   </div>
 
-  <h6><b>{{operation}} {{account.name}}</b></h6>
-
   <form (ngSubmit)="onSubmit()" #accountDetailForm="ngForm" class="content-pane">
-
+      <h6><b>{{operation}} {{account.name}}</b></h6>
     <mat-form-field class="normal-width">
       <input matInput placeholder="Name" required name="name"
         [(ngModel)]="account.name" #name="ngModel"/>
@@ -51,7 +24,7 @@
   <div class="container-footer">
     <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i
         class="fa fa-undo fa-lg"></i></button>
-    <button role="button" class="btn btn-default btn-circle" (click)="saveAccount()"
+    <button role="button" class="btn btn-default btn-circle ml-1" (click)="saveAccount()"
       [disabled]="!accountDetailForm.form.valid"><i class="fa fa-save fa-lg"></i></button>
   </div>
 </div>

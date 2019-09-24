@@ -6,9 +6,8 @@
           class="fas fa-home fa-lg"></i></span></button>
   </div>
 
-  <h6><b>Transaction Types</b></h6>
-
   <div *ngIf="transactionTypes" class="transaction-types-pane">
+    <h6><b>Transaction Types</b></h6>
     <div class="list-group">
       <a *ngFor="let transactionType of transactionTypes" routerLink="/edit-transaction-type/{{transactionType.id}}"
         class="list-group-item list-group-item-action">
@@ -22,6 +21,7 @@
   </div>
 
   <div class="container-footer">
-    <button role="button" class="btn btn-default btn-circle" (click)="addTransactionType()"><i class="fa fa-plus"></i></button>
+    <button role="button" class="btn btn-default btn-circle" (click)="addTransactionType()"><i
+        class="fa fa-plus"></i></button>
   </div>
 </div>

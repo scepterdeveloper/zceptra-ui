@@ -6,10 +6,8 @@
           class="fas fa-home fa-lg"></i></span></button>
   </div>
 
-  <h6><b>{{operation}} {{category.name}}</b></h6>
-
   <form (ngSubmit)="onSubmit()" #categoryDetailForm="ngForm" class="content-pane">
-
+    <h6><b>{{operation}} {{category.name}}</b></h6>
     <mat-form-field class="normal-width">
       <input matInput placeholder="Name" required name="name"
         [(ngModel)]="category.name" #name="ngModel"/>
@@ -34,7 +32,7 @@
   <div class="container-footer">
     <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i
         class="fa fa-undo fa-lg"></i></button>
-    <button role="button" class="btn btn-default btn-circle" (click)="saveCategory()"
+    <button role="button" class="btn btn-default btn-circle ml-1" (click)="saveCategory()"
       [disabled]="!categoryDetailForm.form.valid"><i class="fa fa-save fa-lg"></i></button>
   </div>
 </div>

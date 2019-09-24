@@ -29,14 +29,13 @@
 .transaction-type-pane {
   flex-grow: 1;
   overflow-y: auto;
+  padding: 4px;
 }
 
 .transaction-type-footer {
   background-color: silver;
   padding: 3px;
 }
-
-
 
 .main-container {
   display: flex;
