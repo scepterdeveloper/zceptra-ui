@@ -30,24 +30,33 @@
       <mat-radio-button value="SINGLE">Single</mat-radio-button>
     </mat-radio-group>
 
-
-
     <div *ngIf="report.reportType == 'TABULAR'">Tabular</div>
     <div *ngIf="report.reportType == '2D'">
-      <mat-form-field class="normal-width">
-        <input matInput placeholder="X Coordinate" required name="xCoord" #name="ngModel" [(ngModel)]="report.xCoord">
-        <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
-      </mat-form-field><br>
-      <mat-form-field class="normal-width">
-        <input matInput placeholder="Y Coordinate" required name="yCoord" #name="ngModel" [(ngModel)]="report.yCoord">
-        <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
-      </mat-form-field><br>
+
+      <div class="coordinate-pane">
+        <div class="coordinate-caption">X Coordinate</div>
+        <mat-form-field class="normal-width">
+          <input matInput placeholder="Field" required name="xCoord" #name="ngModel" [(ngModel)]="report.xCoord">
+          <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
+        </mat-form-field>
+        <mat-form-field class="normal-width">
+            <input matInput placeholder="Label" required name="xCoordLabel" #name="ngModel" [(ngModel)]="report.xCoordLabel">
+            <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
+          </mat-form-field>        
+      </div>
+      <div class="coordinate-pane mb-1">
+          <div class="coordinate-caption">Y Coordinate</div>
+        <mat-form-field class="normal-width">
+          <input matInput placeholder="Field" required name="yCoord" #name="ngModel" [(ngModel)]="report.yCoord">
+          <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
+        </mat-form-field>
+        <mat-form-field class="normal-width">
+            <input matInput placeholder="Label" required name="yCoordLabel" #name="ngModel" [(ngModel)]="report.yCoordLabel">
+            <!--<mat-error *ngIf="name.invalid">Entity name is required</mat-error>-->
+          </mat-form-field>        
+      </div>
     </div>
     <div *ngIf="report.reportType == 'SINGLE'">Single</div>
-
-
-
-
 
     <mat-form-field class="normal-width">
       <textarea matInput placeholder="WHERE Clause" required name="query" #query="ngModel"
@@ -56,7 +65,8 @@
 
   </form>
   <div class="report-form-footer">
-    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i class="fa fa-undo fa-lg"></i></button>
+    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i
+        class="fa fa-undo fa-lg"></i></button>
     <button role="button" class="btn btn-default btn-circle ml-1" (click)="saveReport()"
       [disabled]="!reportForm.form.valid"><i class="fas fa-save fa-lg"></i></button>
   </div>

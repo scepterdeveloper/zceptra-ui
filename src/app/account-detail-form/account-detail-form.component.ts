@@ -52,7 +52,7 @@ export class AccountDetailFormComponent implements OnInit {
     this.category.id = categoryId;
 
     if(id==-1)  {
-      this.operation = "Add Account: ";
+      this.operation = "Add Account » ";
       this.account = new Account();
       this.account.category = this.category;
       this.account.id = null;
@@ -74,7 +74,7 @@ export class AccountDetailFormComponent implements OnInit {
             console.log("Data from server: " + data.name);
             this.account = data;
             console.log("Posted account with id: " + this.account.id);
-            this.router.navigateByUrl("accounts/" + this.category.id + "/" + this.category.name);
+            this.router.navigateByUrl("accounts/" + this.category.id + "/" + this.account.category.name);
         },
         error => {
           console.log("Could not post account, check if feeder is up.");

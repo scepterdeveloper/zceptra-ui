@@ -104,7 +104,7 @@ onCreditAccountHiddenChange(event: MatCheckboxChange) {
 
     const id = +this.route.snapshot.paramMap.get('id');
     if(id==-1)  {
-      this.operation = "Add Transaction Type: ";
+      this.operation = "Add Transaction Type » ";
       this.transactionType = new TransactionType();
       this.transactionType.id = null;
       this.transactionType.name = "";

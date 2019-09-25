@@ -23,7 +23,7 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="yCoordinate">
         <th mat-header-cell *matHeaderCellDef> {{columnHeaders[1]}} </th>
-        <td mat-cell *matCellDef="let element"> {{element.yCoordinate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.yCoordinate | currency: 'EUR':true:'':'en-US'}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

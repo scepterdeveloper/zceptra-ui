@@ -56,7 +56,7 @@ export class CategoryDetailFormComponent implements OnInit {
 
     const id = +this.route.snapshot.paramMap.get('id');
     if(id==-1)  {
-      this.operation = "Add Category: ";
+      this.operation = "Add Category » ";
       this.category = new Category();
       this.category.id = null;
       this.category.name = "";
@@ -76,7 +76,7 @@ export class CategoryDetailFormComponent implements OnInit {
             console.log("Data from server: " + data.name);
             this.category = data;
             console.log("Posted category with id: " + this.category.id);
-            this.router.navigateByUrl("category-detail/" + this.category.id);
+            this.router.navigateByUrl("categories");
         },
         error => {
           console.log("Could not post category, check if feeder is up.");

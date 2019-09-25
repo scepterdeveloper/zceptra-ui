@@ -8,4 +8,6 @@ export class Report {
   tableFields: String[];
   xCoord: String;
   yCoord: String;
+  xCoordLabel: String;
+  yCoordLabel: String;
 }
