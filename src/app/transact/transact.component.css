@@ -132,8 +132,12 @@ a:hover {
       margin: 1px;
       padding: 2px;
       text-align: center;
-      background-color: rgb(52, 73, 94);
-      color: #E9E9E9;
+      /*background-color: rgb(52, 73, 94);*/
+      /*color: #E9E9E9;*/
+      color: cadetblue;
+      border-style: solid;
+      border-width: 1px;
+      border-color: lightgray;
     }
     
     .transact-type-box-decription {
