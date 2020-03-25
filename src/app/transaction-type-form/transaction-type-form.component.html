@@ -75,11 +75,12 @@
         <div class="card-header">Credit Account</div>
         <div class="card-body m-1">
           <mat-checkbox name="creditAccountFixed" #creditAccountFixed="ngModel"
-          (change)="onCreditAccountFixedChange($event)" [(ngModel)]="transactionType.creditAccountFixed">Fixed Account</mat-checkbox>&nbsp;
+            (change)="onCreditAccountFixedChange($event)" [(ngModel)]="transactionType.creditAccountFixed">Fixed Account
+          </mat-checkbox>&nbsp;
 
           <mat-checkbox name="creditAccountHidden" #creditAccountHidden="ngModel"
-          [(ngModel)]="transactionType.creditAccountHidden" (change)="onCreditAccountHiddenChange($event)"
-          [disabled]="!transactionType.creditAccountFixed">Hide</mat-checkbox>
+            [(ngModel)]="transactionType.creditAccountHidden" (change)="onCreditAccountHiddenChange($event)"
+            [disabled]="!transactionType.creditAccountFixed">Hide</mat-checkbox>
 
           <mat-form-field class="normal-width">
             <input matInput placeholder="Field Label" required name="creditAccountLabel" #creditAccountLabel="ngModel"
@@ -91,7 +92,8 @@
           <div class="form-group">
             <mat-radio-group name="creditAccountOrganizingEntityType"
               [(ngModel)]="transactionType.creditAccountOrganizingEntityType">
-              <mat-radio-button value="CATEGORY" (change)="creditAccountOrganizingEntitySetAsCategory($event)" [disabled]="transactionType.creditAccountFixed">
+              <mat-radio-button value="CATEGORY" (change)="creditAccountOrganizingEntitySetAsCategory($event)"
+                [disabled]="transactionType.creditAccountFixed">
                 Categories</mat-radio-button>
               <mat-radio-button class="ml-2" value="ACCOUNT"
                 (change)="creditAccountOrganizingEntitySetAsAccount($event)">Accounts</mat-radio-button>
@@ -123,8 +125,11 @@
     </div>
   </form>
   <div class="container-footer">
-    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i class="fa fa-undo fa-lg"></i></button>
+    <button role="button" class="btn btn-default btn-circle" (click)="goBack()"><i
+        class="fa fa-undo fa-lg"></i></button>
     <button role="button" class="btn btn-default btn-circle ml-1" (click)="saveTransactionType()"
       [disabled]="!transactionTypeForm.form.valid"><i class="fa fa-save fa-lg"></i></button>
+    <button role="button" (click)="deleteTransactionType()" 
+    [disabled]="isNew" class="ml-1 btn btn-default btn-circle"><i class="fa fa-trash"></i></button>
   </div>
 </div>

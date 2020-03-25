@@ -94,7 +94,7 @@ export class TransactComponent implements OnInit {
       data => {
         console.log("Posted to Server");
         this.transactionsForDelete = [];
-        this.toastr.success('Success!', 'Delete Transaction');
+        this.toastr.success('Ok!', 'Transaction(s) Deleted');
         this.getTransactions();
       },
       error => {
