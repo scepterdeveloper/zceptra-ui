@@ -8,7 +8,10 @@
   </div>
 
   <div class="report-view-pane">
-      <p>{{reportData.caption}} - {{reportData.totalValue | currency:'EUR'}}</p>
+    <div class="report-header-pane">
+      <div class="kpi-name"><div>{{reportData.caption}}</div></div>
+      <div class="kpi-value">{{reportData.totalValue | currency:'EUR'}}</div>
+    </div>
     <!--<div class="caption"> <div class="kpi">{{reportData.totalValue}}</div></div>-->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
