@@ -8,7 +8,8 @@
   </div>
 
   <div class="report-view-pane">
-    <p class="caption">{{reportData.caption}}</p>
+      <p>{{reportData.caption}} - {{reportData.totalValue | currency:'EUR'}}</p>
+    <!--<div class="caption"> <div class="kpi">{{reportData.totalValue}}</div></div>-->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
@@ -28,7 +29,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </table><br>
   </div>
   <div class="footer">
     <button role="button" class="btn btn-default btn-circle" (click)="exportPDF()"><i class="fas fa-file-pdf fa-lg"></i></button>

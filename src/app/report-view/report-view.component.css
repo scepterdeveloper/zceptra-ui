@@ -4,6 +4,10 @@
   border: none;
 }
 
+.kpi {
+  color: green;
+}
+
 .report-view {
   display: flex;
   flex-direction: column;
