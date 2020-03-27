@@ -1,3 +1,35 @@
 <div class="dashboard">
-  Welcome to eCounts<br>
+  <div *ngFor="let reportData of reports">
+    <div class="report-view-pane">
+      <div class="report-header-pane">
+        <div class="kpi-name">
+          <div>{{reportData.caption}}</div>
+        </div>
+        <div class="kpi-value">{{reportData.totalValue | currency:'EUR'}}</div>
+      </div>
+
+      <table mat-table [dataSource]="reportData.values" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="xCoordinate">
+          <!--<th mat-header-cell *matHeaderCellDef> {{columnHeaders[0]}} </th>-->
+          <th mat-header-cell *matHeaderCellDef> {{reportData.xCoordinateLabel}} </th>
+          <td mat-cell *matCellDef="let element"> {{element.xCoordinate}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="yCoordinate">
+          <th class="text-right" mat-header-cell *matHeaderCellDef> {{reportData.yCoordinateLabel}} </th>
+          <td class="text-right" mat-cell *matCellDef="let element"> {{element.yCoordinate | currency:'EUR'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!--<div class="caption"> <div class="kpi">{{reportData.totalValue}}</div></div>-->
+    </div>
+  </div>
 </div>

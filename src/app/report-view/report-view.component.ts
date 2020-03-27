@@ -17,12 +17,6 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const ELEMENT_DATA: ReportData2DLine[] = [
-  {xCoordinate: 'Hydrogen', yCoordinate: "1.0079"},
-  {xCoordinate: 'Helium', yCoordinate: "45"},
-  {xCoordinate: 'Calcium', yCoordinate: "57"}
-];
-
 @Component({
   selector: 'app-report-view',
   templateUrl: './report-view.component.html',
@@ -31,7 +25,7 @@ const ELEMENT_DATA: ReportData2DLine[] = [
 export class ReportViewComponent implements OnInit {
 
   reportData: ReportData2D;
-  dataSource = ELEMENT_DATA;
+  dataSource: ReportData2DLine[];
   displayedColumns: String[] = ['xCoordinate', 'yCoordinate'];
   columnHeaders: String[] = ["", ""];
 
@@ -72,6 +66,7 @@ export class ReportViewComponent implements OnInit {
         this.reportData = data;
         this.columnHeaders = [data.xCoordinateLabel, data.yCoordinateLabel];
         this.dataSource = data.values;
+        console.log(JSON.stringify(this.dataSource));
     },
     error => {
       console.log("Could not get report data, check if feeder is up.");
