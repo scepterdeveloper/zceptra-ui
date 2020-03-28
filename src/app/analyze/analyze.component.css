@@ -35,7 +35,9 @@
     margin: 1px;
     padding: 4px;
     display: flex;
-    width: 100%;
+    /*width: 100%;*/
+    width: 32.6vw;
+    height: 32.6vw;
     background-color: rgb(52, 73, 94);
     color: white;
     flex-direction: column;
